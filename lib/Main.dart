@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:pac4/Widgets/Board.dart';
+import 'package:pac4/Widgets/BoardTile.dart';
+import 'Util/Classes.dart';
+import 'Widgets/GameCard.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,7 +20,22 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('Pac 4'),
         ),
-        body: Text('teste'),
+        body: SafeArea(
+          child: Center(
+            child: Column(
+              children: [
+                Board(),
+                GameCard(
+                  region: Region.DEMACIA,
+                  rarity: Rarity.COMMON,
+                  name: "Nome",
+                  description: "Descricao",
+                  atributtes: Atributtes(1, 2, 3, 4),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
