@@ -1,25 +1,5 @@
 import 'package:flutter/material.dart';
-
-enum Region { DEMACIA, NOXUS }
-
-enum Rarity { COMMON, RARE, EPIC, LEGENDARY }
-
-class Atributtes {
-  int top;
-  int rigth;
-  int bottom;
-  int left;
-
-  Atributtes(this.top, this.rigth, this.bottom, this.left);
-}
-
-class Powers {
-  String name;
-  String descrition;
-  void Function() execution;
-
-  Powers(this.name, this.descrition, this.execution);
-}
+import 'package:pac4/Util/Classes.dart';
 
 class GameCard extends StatelessWidget {
   final Region region;
@@ -55,8 +35,8 @@ class GameCardChild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100,
-      width: 100,
+      height: 76,
+      width: 76,
       child: Card(
         color: Colors.blue[200],
         child: Center(
@@ -89,8 +69,8 @@ class GameCardFeedback extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100,
-      width: 100,
+      height: 90,
+      width: 90,
       child: Card(
         color: Colors.blue[200],
         child: Center(
