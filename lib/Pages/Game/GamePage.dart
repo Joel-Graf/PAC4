@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Board.dart';
+import 'package:pac4/Pages/Game/Card/GameCard.dart';
+import 'package:pac4/Pages/Game/Hand/Board.dart';
+import 'package:pac4/Pages/Game/Util/Classes.dart';
 
 class GamePage extends StatelessWidget {
   const GamePage({Key? key}) : super(key: key);
@@ -17,13 +19,29 @@ class GamePage extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 7,
+              flex: 8,
               child: Board(),
             ),
             Flexible(
               flex: 4,
               child: Container(
                 color: Colors.purple,
+                child: Row(
+                  children: [
+                    GameCard(
+                      region: Region.DEMACIA,
+                      rarity: Rarity.COMMON,
+                      name: 'AAA',
+                      description: 'AAA',
+                      atributtes: Attributes(
+                        1,
+                        1,
+                        1,
+                        1,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ],

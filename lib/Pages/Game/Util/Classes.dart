@@ -2,13 +2,13 @@ enum Region { DEMACIA, NOXUS }
 
 enum Rarity { COMMON, RARE, EPIC, LEGENDARY }
 
-class Atributtes {
+class Attributes {
   int top;
   int rigth;
   int bottom;
   int left;
 
-  Atributtes(this.top, this.rigth, this.bottom, this.left);
+  Attributes(this.top, this.rigth, this.bottom, this.left);
 }
 
 class Powers {
