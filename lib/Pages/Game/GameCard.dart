@@ -3,6 +3,8 @@ import 'package:pac4/Pages/Game/Util/Classes.dart';
 import 'package:pac4/Pages/Game/Util/MyCard.dart';
 
 class GameCard extends StatelessWidget {
+  final Team team;
+  final String image;
   final Region region;
   final Rarity rarity;
   final String name;
@@ -12,6 +14,8 @@ class GameCard extends StatelessWidget {
 
   const GameCard({
     Key? key,
+    required this.team,
+    required this.image,
     required this.region,
     required this.rarity,
     required this.name,
@@ -25,24 +29,26 @@ class GameCard extends StatelessWidget {
     return Draggable(
       feedback: Material(
         color: Colors.transparent,
-        child: GameCardModel(),
+        child: GameCardModel(this),
       ),
-      child: GameCardModel(),
+      child: GameCardModel(this),
       data: "aa",
     );
   }
 }
 
 class GameCardModel extends StatelessWidget {
-  const GameCardModel({Key? key}) : super(key: key);
+  final GameCard gameCard;
+
+  const GameCardModel(this.gameCard, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MyCard(
       child: Stack(
         children: [
-          GameCardBackground(),
-          GameCardContent(),
+          GameCardBackground(gameCard),
+          GameCardContent(gameCard),
         ],
       ),
     );
@@ -50,18 +56,20 @@ class GameCardModel extends StatelessWidget {
 }
 
 class GameCardBackground extends StatelessWidget {
-  const GameCardBackground({Key? key}) : super(key: key);
+  final GameCard gameCard;
+
+  const GameCardBackground(this.gameCard, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red, //FIXME: Parametrizar
+      color: gameCard.team == Team.PLAYER ? Colors.blue : Colors.red,
       child: Padding(
-        padding: EdgeInsets.all(2),
+        padding: EdgeInsets.all(4),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(5),
           child: Image.asset(
-            'assets/images/teste_img.png', //FIXME: Parametrizar
+            'assets/images/cards/${gameCard.image}.png',
             height: double.infinity,
             fit: BoxFit.cover,
           ),
@@ -72,7 +80,9 @@ class GameCardBackground extends StatelessWidget {
 }
 
 class GameCardContent extends StatelessWidget {
-  const GameCardContent({Key? key}) : super(key: key);
+  final GameCard gameCard;
+
+  const GameCardContent(this.gameCard, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +94,7 @@ class GameCardContent extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              AttributesModel(Attributes(-10, -10, -20, -10)),
+              AttributesModel(Attributes(1, 1, 1, 1)),
             ],
           ),
           Row(
@@ -96,8 +106,8 @@ class GameCardContent extends StatelessWidget {
                   right: 3,
                 ),
                 child: SizedBox(
-                  height: 18,
-                  width: 18,
+                  height: 24,
+                  width: 24,
                   child: ClipOval(
                     child: Container(
                       decoration: BoxDecoration(
@@ -110,7 +120,7 @@ class GameCardContent extends StatelessWidget {
                         ],
                       ),
                       child: Image.asset(
-                        'assets/images/icon-all.png', //FIXME: Parametrizar
+                        'assets/images/regions/${Regions[gameCard.region]}.png',
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -162,17 +172,20 @@ class AttributeText extends StatelessWidget {
         Text(
           text,
           style: TextStyle(
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.bold,
+            fontSize: 12,
             foreground: Paint()
               ..style = PaintingStyle.stroke
-              ..strokeWidth = 1.4
-              ..color = Colors.grey[200]!,
+              ..strokeWidth = 2.6
+              ..color = Colors.black,
           ),
         ),
         Text(
           text,
           style: TextStyle(
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.bold,
+            fontSize: 12,
+            color: Colors.white,
           ),
         ),
       ],

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Tile/GameTile.dart';
+import 'package:pac4/Pages/Game/Tile.dart';
 
 class Board extends StatelessWidget {
   const Board({Key? key}) : super(key: key);

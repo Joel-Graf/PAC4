@@ -1,4 +1,8 @@
+enum Team { PLAYER, ENEMY }
+
 enum Region { DEMACIA, NOXUS }
+
+final Regions = {Region.DEMACIA: 'demacia', Region.NOXUS: 'noxus'};
 
 enum Rarity { COMMON, RARE, EPIC, LEGENDARY }
 

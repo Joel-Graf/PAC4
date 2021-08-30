@@ -1,0 +1,29 @@
+{
+  "region": "Demacia",
+  "regionRef": "Demacia",
+  "attack": 2,
+  "cost": 1,
+  "health": 2,
+  "description": "",
+  "descriptionRaw": "",
+  "levelupDescription": "",
+  "levelupDescriptionRaw": "",
+  "flavorText": "\"Each night before bed, my mother would tell me stories of Demacia's greatest heroes as she sharpened her sword. My dreams were full of adventures, and today I'll begin a story all my own.\"",
+  "artistName": "SIXMOREVODKA",
+  "name": "Cithria of Cloudfield",
+  "cardCode": "01DE039",
+  "keywords": [],
+  "keywordRefs": [],
+  "spellSpeed": "",
+  "spellSpeedRef": "",
+  "rarity": "COMMON",
+  "rarityRef": "Common",
+  "subtype": "ELITE",
+  "subtypes": [
+    "ELITE"
+  ],
+  "supertype": "",
+  "type": "Unit",
+  "collectible": true,
+  "set": "Set1"
+}
