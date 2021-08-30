@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Card/GameCard.dart';
-import 'package:pac4/Pages/Game/Tile/GameTile.dart';
+import 'package:pac4/Pages/Game/GameCard.dart';
+import 'package:pac4/Pages/Game/Tile.dart';
 import 'package:pac4/Pages/Game/Util/Classes.dart';
 import 'package:pac4/Pages/Game/Util/MyCard.dart';
 
