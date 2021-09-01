@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Board.dart';
-import 'package:pac4/Pages/Game/HandEnemy.dart';
+import 'package:pac4/Pages/Game/EnemyHand.dart';
 import 'package:pac4/Pages/Game/HandPlayer.dart';
 
 class GamePage extends StatelessWidget {

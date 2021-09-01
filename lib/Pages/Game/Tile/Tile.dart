@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/GameCard.dart';
+import 'package:pac4/Pages/Game/Card/GameCard.dart';
 import 'package:pac4/Pages/Game/Util/Classes.dart';
-import 'package:pac4/Pages/Game/Util/MyCard.dart';
+import 'package:pac4/Pages/Game/Util/Widgets/MyCard.dart';
 
 class Tile extends StatefulWidget {
-  const Tile({Key? key}) : super(key: key);
+  const Tile(Position position, {Key? key}) : super(key: key);
 
   @override
   _TileState createState() => _TileState();
@@ -12,28 +12,19 @@ class Tile extends StatefulWidget {
 
 class _TileState extends State<Tile> {
   bool accepted = true;
+  GameCard? gameCard;
 
   @override
   Widget build(BuildContext context) {
     return DragTarget(
       builder: (context, List<Object?> candidateData, rejectedData) {
-        return accepted
-            ? EmpetyTile()
-            : GameCard(
-                image: 'novata',
-                team: Team.ENEMY,
-                region: Region.NOXUS,
-                rarity: Rarity.COMMON,
-                name: 'AAA',
-                description: 'AAA',
-                atributtes: Attributes(1, 1, 1, 1),
-              );
+        return gameCard ?? EmpetyTile();
       },
       onWillAccept: (data) {
-        return true;
+        return this.gameCard == null;
       },
-      onAccept: (data) {
-        accepted = !accepted;
+      onAccept: (GameCard data) {
+        this.gameCard = data;
       },
     );
   }

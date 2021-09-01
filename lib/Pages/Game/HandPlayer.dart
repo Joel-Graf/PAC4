@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/GameCard.dart';
-import 'package:pac4/Pages/Game/Tile.dart';
+import 'package:pac4/Pages/Game/Card/GameCard.dart';
+import 'package:pac4/Pages/Game/Tile/Tile.dart';
 import 'package:pac4/Pages/Game/Util/Classes.dart';
-import 'package:pac4/Pages/Game/Util/MyCard.dart';
 
 class HandPlayer extends StatelessWidget {
   const HandPlayer({Key? key}) : super(key: key);

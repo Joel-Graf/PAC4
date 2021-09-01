@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pac4/Pages/Game/Tile/Tile.dart';
 import 'package:pac4/Pages/Game/Util/Classes.dart';
-import 'package:pac4/Pages/Game/Util/MyCard.dart';
+import 'package:pac4/Pages/Game/Util/Widgets/MyCard.dart';
 
 class GameCard extends StatelessWidget {
   final Team team;
@@ -26,13 +27,14 @@ class GameCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Draggable(
+    return Draggable<GameCard>(
       feedback: Material(
         color: Colors.transparent,
         child: GameCardModel(this),
       ),
       child: GameCardModel(this),
-      data: "aa",
+      childWhenDragging: EmpetyTile(),
+      data: this,
     );
   }
 }
