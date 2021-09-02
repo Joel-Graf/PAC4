@@ -17,7 +17,7 @@ class HandEnemy extends StatelessWidget {
             children: [
               EmpetyTile(),
               GameCard(
-                image: 'novata',
+                image: 'demacia/champions/garen',
                 team: Team.ENEMY,
                 region: Region.DEMACIA,
                 rarity: Rarity.COMMON,

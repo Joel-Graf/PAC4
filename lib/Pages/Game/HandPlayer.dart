@@ -17,7 +17,7 @@ class HandPlayer extends StatelessWidget {
             children: [
               EmpetyTile(),
               GameCard(
-                image: 'novata',
+                image: 'demacia/novata',
                 team: Team.PLAYER,
                 region: Region.NOXUS,
                 rarity: Rarity.COMMON,
