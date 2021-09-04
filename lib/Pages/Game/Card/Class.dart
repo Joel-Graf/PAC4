@@ -3,8 +3,7 @@ class GameCardClass {
   String image = 'demacia/novata';
   Region region = Region.DEMACIA;
   Rarity rarity = Rarity.COMMON;
-  String name = 'DEMENCIA';
-  String description = 'aaa';
+  String name = 'novata';
   Attributes atributtes = Attributes(1, 1, 1, 1);
   List<Powers>? powers;
 }
