@@ -1,11 +1,11 @@
 class GameCardClass {
-  Team? team;
-  String? image;
-  Region? region;
-  Rarity? rarity;
-  String? name;
-  String? description;
-  Attributes? atributtes;
+  Team team = Team.PLAYER;
+  String image = 'demacia/novata';
+  Region region = Region.DEMACIA;
+  Rarity rarity = Rarity.COMMON;
+  String name = 'DEMENCIA';
+  String description = 'aaa';
+  Attributes atributtes = Attributes(1, 1, 1, 1);
   List<Powers>? powers;
 }
 

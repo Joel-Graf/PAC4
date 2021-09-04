@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pac4/Pages/Game/Card/Class.dart';
+import 'package:pac4/Pages/Game/Card/GameCard.dart';
 import 'package:pac4/Pages/Game/Tile/Tile.dart';
 
 class HandPlayer extends StatelessWidget {
@@ -12,9 +14,7 @@ class HandPlayer extends StatelessWidget {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              EmpetyTile(),
-            ],
+            children: [EmpetyTile(), GameCard(GameCardClass())],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
