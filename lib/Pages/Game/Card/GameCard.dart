@@ -10,14 +10,14 @@ class GameCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Draggable<GameCardClass>(
+    return Draggable<GameCard>(
       feedback: Material(
         color: Colors.transparent,
         child: GameCardModel(cardClass),
       ),
       child: GameCardModel(cardClass),
       childWhenDragging: EmpetyTile(),
-      data: cardClass,
+      data: this,
     );
   }
 }
