@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pac4/Pages/Game/Board.dart';
 import 'package:pac4/Pages/Game/Card/GameCard.dart';
-import 'package:pac4/Pages/Game/Util/Classes.dart';
-import 'package:pac4/Pages/Game/Util/Widgets/MyCard.dart';
+import 'package:pac4/Pages/Game/Util/MyCard.dart';
 
 class Tile extends StatefulWidget {
   const Tile(Position position, {Key? key}) : super(key: key);
@@ -11,7 +11,6 @@ class Tile extends StatefulWidget {
 }
 
 class _TileState extends State<Tile> {
-  bool accepted = true;
   GameCard? gameCard;
 
   @override
