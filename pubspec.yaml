@@ -52,7 +52,6 @@ flutter:
   assets:
     - assets/images/regions/
     - assets/images/cards/demacia/
-    - assets/images/cards/demacia/champions/
     - assets/images/cards/noxus/
     - assets/images/cards/noxus/champions/
     - lib/Pages/Game/Util/cards.json
