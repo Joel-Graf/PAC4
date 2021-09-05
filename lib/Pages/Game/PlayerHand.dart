@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Card/GameCardClass.dart';
 import 'package:pac4/Pages/Game/Card/GameCard.dart';
 import 'package:pac4/Pages/Game/Tile/EmpetyTile.dart';
-import 'package:pac4/Pages/Game/Tile/PlayerTile.dart';
 
 class HandPlayer extends StatelessWidget {
   const HandPlayer({Key? key}) : super(key: key);
@@ -13,11 +12,12 @@ class HandPlayer extends StatelessWidget {
       color: Colors.amber[300]!.withOpacity(0.8),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              EmpetyTile(),
-              PlayerTile(
+          Container(
+            width: double.infinity,
+            child: Wrap(
+              alignment: WrapAlignment.spaceEvenly,
+              children: [
+                EmpetyTile(),
                 GameCard(
                   GameCardClass(
                     region: Region.DEMACIA,
@@ -26,12 +26,8 @@ class HandPlayer extends StatelessWidget {
                     rarity: Rarity.COMMON,
                   ),
                 ),
-              )
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [],
+              ],
+            ),
           ),
         ],
       ),
