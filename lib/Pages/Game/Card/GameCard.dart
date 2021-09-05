@@ -13,26 +13,21 @@ class GameCard extends StatefulWidget {
 }
 
 class _GameCardState extends State<GameCard> {
-  Team team = Team.PLAYER;
-
   @override
   Widget build(BuildContext context) {
     return Draggable<GameCardModel>(
       child: GameCardModel(
         cardData: widget.cardData,
-        team: team,
       ),
       feedback: Material(
         color: Colors.transparent,
         child: GameCardModel(
           cardData: widget.cardData,
-          team: team,
         ),
       ),
       childWhenDragging: EmpetyTile(),
       data: GameCardModel(
         cardData: widget.cardData,
-        team: team,
       ),
     );
   }

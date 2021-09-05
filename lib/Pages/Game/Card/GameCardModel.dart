@@ -4,13 +4,8 @@ import 'package:pac4/Pages/Game/Util/MyCard.dart';
 
 class GameCardModel extends StatelessWidget {
   final GameCardData cardData;
-  final Team team; //FIXME:
 
-  const GameCardModel({
-    Key? key,
-    required this.cardData,
-    required this.team,
-  }) : super(key: key);
+  const GameCardModel({Key? key, required this.cardData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +14,7 @@ class GameCardModel extends StatelessWidget {
         children: [
           GameCardBackground(
             image: '${Regions[cardData.region]}/${cardData.name}',
-            team: team,
+            team: cardData.team,
           ),
           GameCardContent(
             cardData.atributtes,
