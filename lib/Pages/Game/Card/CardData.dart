@@ -1,4 +1,4 @@
-class GameCardData {
+class CardData {
   Team team;
   Region region;
   String name;
@@ -6,7 +6,7 @@ class GameCardData {
   Attributes atributtes;
   List<Powers>? powers;
 
-  GameCardData({
+  CardData({
     required this.team,
     required this.region,
     required this.name,

@@ -1,11 +1,11 @@
-import 'package:pac4/Pages/Game/Card/GameCardData.dart';
+import 'package:pac4/Pages/Game/Card/CardData.dart';
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Util/MyCard.dart';
 
-class GameCardModel extends StatelessWidget {
-  final GameCardData cardData;
+class CardModel extends StatelessWidget {
+  final CardData cardData;
 
-  const GameCardModel({Key? key, required this.cardData}) : super(key: key);
+  const CardModel({Key? key, required this.cardData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

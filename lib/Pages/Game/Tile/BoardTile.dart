@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Board.dart';
-import 'package:pac4/Pages/Game/Card/GameCardModel.dart';
+import 'package:pac4/Pages/Game/Card/CardModel.dart';
 import 'package:pac4/Pages/Game/Tile/EmpetyTile.dart';
 
 class BoardTile extends StatefulWidget {
@@ -11,7 +11,7 @@ class BoardTile extends StatefulWidget {
 }
 
 class _BoardTileState extends State<BoardTile> {
-  GameCardModel? gameCardModel;
+  CardModel? gameCardModel;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class _BoardTileState extends State<BoardTile> {
       onWillAccept: (data) {
         return this.gameCardModel == null;
       },
-      onAccept: (GameCardModel data) {
+      onAccept: (CardModel data) {
         this.gameCardModel = data;
       },
     );

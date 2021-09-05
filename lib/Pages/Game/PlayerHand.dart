@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Card/GameCard.dart';
+import 'package:pac4/Pages/Game/Card/PlayerCard.dart';
 import 'package:pac4/Pages/Game/Util/Decks/Demacia.dart';
 import 'package:provider/provider.dart';
 
@@ -21,7 +21,7 @@ class HandPlayer extends StatelessWidget {
             child: Wrap(
               alignment: WrapAlignment.spaceEvenly,
               children:
-                  playerHand.map((gameClass) => GameCard(gameClass)).toList(),
+                  playerHand.map((gameClass) => PlayerCard(gameClass)).toList(),
             ),
           ),
         ],
