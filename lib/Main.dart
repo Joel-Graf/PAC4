@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pac4/Pages/Game/Util/Decks/Demacia.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
 import 'package:pac4/Pages/Game/GamePage.dart';
 
@@ -14,9 +16,12 @@ class MyApp extends StatelessWidget {
     // Sem mostrar barra de status do celular
     SystemChrome.setEnabledSystemUIOverlays([]);
 
-    return MaterialApp(
-      title: 'Truco of Legends',
-      home: GamePage(),
+    return ChangeNotifierProvider(
+      create: (BuildContext context) => PlayerCards(),
+      child: MaterialApp(
+        title: 'Truco of Legends',
+        home: GamePage(),
+      ),
     );
   }
 }

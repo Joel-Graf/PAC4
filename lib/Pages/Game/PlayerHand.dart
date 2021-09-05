@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Card/GameCard.dart';
-import 'package:pac4/Pages/Game/Tile/EmpetyTile.dart';
 import 'package:pac4/Pages/Game/Util/Decks/Demacia.dart';
+import 'package:provider/provider.dart';
 
-class HandPlayer extends StatefulWidget {
+class HandPlayer extends StatelessWidget {
   const HandPlayer({Key? key}) : super(key: key);
 
   @override
-  _HandPlayerState createState() => _HandPlayerState();
-}
-
-class _HandPlayerState extends State<HandPlayer> {
-  var playerHand = deckDemacia;
-
-  @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<PlayerCards>(context);
+    final playerHand = provider.deckDemacia;
+
     return Container(
       color: Colors.amber[300]!.withOpacity(0.8),
       child: Column(
@@ -24,10 +20,8 @@ class _HandPlayerState extends State<HandPlayer> {
             width: double.infinity,
             child: Wrap(
               alignment: WrapAlignment.spaceEvenly,
-              children: playerHand
-                  .map((gameClass) =>
-                      gameClass != null ? GameCard(gameClass) : EmpetyTile())
-                  .toList(),
+              children:
+                  playerHand.map((gameClass) => GameCard(gameClass)).toList(),
             ),
           ),
         ],
