@@ -1,11 +1,13 @@
-class GameCardClass {
-  Region region = Region.DEMACIA;
-  String name = 'novata';
-  Rarity rarity = Rarity.COMMON;
-  Attributes atributtes = Attributes(1, 1, 1, 1);
+class GameCardData {
+  Team team;
+  Region region;
+  String name;
+  Rarity rarity;
+  Attributes atributtes;
   List<Powers>? powers;
 
-  GameCardClass({
+  GameCardData({
+    required this.team,
     required this.region,
     required this.name,
     required this.rarity,

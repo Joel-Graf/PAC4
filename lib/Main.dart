@@ -16,9 +16,6 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       title: 'Truco of Legends',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: GamePage(),
     );
   }

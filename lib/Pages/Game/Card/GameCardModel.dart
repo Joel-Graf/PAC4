@@ -1,14 +1,14 @@
-import 'package:pac4/Pages/Game/Card/GameCardClass.dart';
+import 'package:pac4/Pages/Game/Card/GameCardData.dart';
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Util/MyCard.dart';
 
 class GameCardModel extends StatelessWidget {
-  final GameCardClass cardClass;
+  final GameCardData cardData;
   final Team team; //FIXME:
 
   const GameCardModel({
     Key? key,
-    required this.cardClass,
+    required this.cardData,
     required this.team,
   }) : super(key: key);
 
@@ -18,12 +18,12 @@ class GameCardModel extends StatelessWidget {
       child: Stack(
         children: [
           GameCardBackground(
-            image: '${Regions[cardClass.region]}/${cardClass.name}',
+            image: '${Regions[cardData.region]}/${cardData.name}',
             team: team,
           ),
           GameCardContent(
-            cardClass.atributtes,
-            cardClass.region,
+            cardData.atributtes,
+            cardData.region,
           ),
         ],
       ),
