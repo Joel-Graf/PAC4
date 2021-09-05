@@ -1,9 +1,9 @@
 import 'package:pac4/Pages/Game/Card/GameCardClass.dart';
 
-final deckDemacia = <GameCardClass>[
+final deckDemacia = <GameCardClass?>[
   GameCardClass(
     region: Region.DEMACIA,
-    name: 'garen',
+    name: 'garen_champion',
     rarity: Rarity.LEGENDARY,
     atributtes: Attributes(1, 1, 1, 1),
   ),

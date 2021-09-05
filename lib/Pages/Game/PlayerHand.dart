@@ -2,9 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Card/GameCardClass.dart';
 import 'package:pac4/Pages/Game/Card/GameCard.dart';
 import 'package:pac4/Pages/Game/Tile/EmpetyTile.dart';
+import 'package:pac4/Pages/Game/Util/Decks/Demacia.dart';
 
-class HandPlayer extends StatelessWidget {
+class HandPlayer extends StatefulWidget {
   const HandPlayer({Key? key}) : super(key: key);
+
+  @override
+  _HandPlayerState createState() => _HandPlayerState();
+}
+
+class _HandPlayerState extends State<HandPlayer> {
+  var playerHand = deckDemacia;
 
   @override
   Widget build(BuildContext context) {
@@ -16,17 +24,10 @@ class HandPlayer extends StatelessWidget {
             width: double.infinity,
             child: Wrap(
               alignment: WrapAlignment.spaceEvenly,
-              children: [
-                EmpetyTile(),
-                GameCard(
-                  GameCardClass(
-                    region: Region.DEMACIA,
-                    atributtes: Attributes(1, 1, 1, 1),
-                    name: 'novata',
-                    rarity: Rarity.COMMON,
-                  ),
-                ),
-              ],
+              children: playerHand
+                  .map((gameClass) =>
+                      gameClass != null ? GameCard(gameClass) : EmpetyTile())
+                  .toList(),
             ),
           ),
         ],
