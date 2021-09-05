@@ -53,7 +53,6 @@ flutter:
     - assets/images/regions/
     - assets/images/cards/demacia/
     - assets/images/cards/noxus/
-    - lib/Pages/Game/Util/cards.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
