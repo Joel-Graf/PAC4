@@ -162,7 +162,7 @@ class AttributeText extends StatelessWidget {
             fontSize: 12,
             foreground: Paint()
               ..style = PaintingStyle.stroke
-              ..strokeWidth = 2.6
+              ..strokeWidth = 3.4
               ..color = Colors.black,
           ),
         ),
