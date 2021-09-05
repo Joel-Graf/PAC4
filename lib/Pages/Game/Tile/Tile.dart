@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Board.dart';
 import 'package:pac4/Pages/Game/Card/GameCard.dart';
 import 'package:pac4/Pages/Game/Util/MyCard.dart';
 
-class Tile extends StatefulWidget {
-  const Tile(Position position, {Key? key}) : super(key: key);
+class BoardTile extends StatefulWidget {
+  const BoardTile({Key? key}) : super(key: key);
 
   @override
   _TileState createState() => _TileState();
 }
 
-class _TileState extends State<Tile> {
+class _TileState extends State<BoardTile> {
   GameCard? gameCard;
 
   @override

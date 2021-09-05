@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Tile/Tile.dart';
+import 'package:pac4/Pages/Game/Tile/BoardTile.dart';
 
 class Board extends StatelessWidget {
   const Board({Key? key}) : super(key: key);
@@ -12,37 +12,37 @@ class Board extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Tile(Position(0, 0)),
-            Tile(Position(1, 0)),
-            Tile(Position(2, 0)),
-            Tile(Position(3, 0)),
+            BoardTile(Position(0, 0)),
+            BoardTile(Position(1, 0)),
+            BoardTile(Position(2, 0)),
+            BoardTile(Position(3, 0)),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Tile(Position(0, 1)),
-            Tile(Position(1, 1)),
-            Tile(Position(2, 1)),
-            Tile(Position(3, 1)),
+            BoardTile(Position(0, 1)),
+            BoardTile(Position(1, 1)),
+            BoardTile(Position(2, 1)),
+            BoardTile(Position(3, 1)),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Tile(Position(0, 2)),
-            Tile(Position(1, 2)),
-            Tile(Position(2, 2)),
-            Tile(Position(3, 2)),
+            BoardTile(Position(0, 2)),
+            BoardTile(Position(1, 2)),
+            BoardTile(Position(2, 2)),
+            BoardTile(Position(3, 2)),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Tile(Position(0, 3)),
-            Tile(Position(1, 3)),
-            Tile(Position(2, 3)),
-            Tile(Position(3, 3)),
+            BoardTile(Position(0, 3)),
+            BoardTile(Position(1, 3)),
+            BoardTile(Position(2, 3)),
+            BoardTile(Position(3, 3)),
           ],
         ),
       ],

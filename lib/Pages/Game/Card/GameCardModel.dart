@@ -1,19 +1,27 @@
-import 'package:pac4/Pages/Game/Card/Class.dart';
+import 'package:pac4/Pages/Game/Card/GameCardClass.dart';
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Util/MyCard.dart';
 
 class GameCardModel extends StatelessWidget {
   final GameCardClass cardClass;
+  final Team team;
 
-  const GameCardModel(this.cardClass, {Key? key}) : super(key: key);
+  const GameCardModel({
+    Key? key,
+    required this.cardClass,
+    required this.team,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MyCard(
       child: Stack(
         children: [
-          GameCardBackground(cardClass),
-          GameCardContent(cardClass),
+          GameCardBackground(
+            image: '${Regions[cardClass.region]}/${cardClass.name}',
+            team: team,
+          ),
+          GameCardContent(cardClass.region),
         ],
       ),
     );
@@ -21,20 +29,25 @@ class GameCardModel extends StatelessWidget {
 }
 
 class GameCardBackground extends StatelessWidget {
-  final GameCardClass cardClass;
+  final String image;
+  final Team team;
 
-  const GameCardBackground(this.cardClass, {Key? key}) : super(key: key);
+  const GameCardBackground({
+    Key? key,
+    required this.image,
+    required this.team,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: cardClass.team == Team.PLAYER ? Colors.blue : Colors.red,
+      color: team == Team.PLAYER ? Colors.blue : Colors.red,
       child: Padding(
         padding: EdgeInsets.all(4),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(5),
           child: Image.asset(
-            'assets/images/cards/${cardClass.image}.png',
+            'assets/images/cards/$image.png',
             height: double.infinity,
             fit: BoxFit.cover,
           ),
@@ -45,9 +58,9 @@ class GameCardBackground extends StatelessWidget {
 }
 
 class GameCardContent extends StatelessWidget {
-  final GameCardClass cardClass;
+  final Region region;
 
-  const GameCardContent(this.cardClass, {Key? key}) : super(key: key);
+  const GameCardContent(this.region, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +98,7 @@ class GameCardContent extends StatelessWidget {
                         ],
                       ),
                       child: Image.asset(
-                        'assets/images/regions/${Regions[cardClass.region]}.png',
+                        'assets/images/regions/${Regions[region]}.png',
                         fit: BoxFit.cover,
                       ),
                     ),

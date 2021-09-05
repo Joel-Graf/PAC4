@@ -1,11 +1,17 @@
 class GameCardClass {
-  Team team = Team.PLAYER;
-  String image = 'demacia/novata';
   Region region = Region.DEMACIA;
-  Rarity rarity = Rarity.COMMON;
   String name = 'novata';
+  Rarity rarity = Rarity.COMMON;
   Attributes atributtes = Attributes(1, 1, 1, 1);
   List<Powers>? powers;
+
+  GameCardClass({
+    required this.region,
+    required this.name,
+    required this.rarity,
+    required this.atributtes,
+    this.powers,
+  });
 }
 
 enum Team { PLAYER, ENEMY }
