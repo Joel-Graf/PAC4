@@ -2,73 +2,43 @@
   "regions": [
     {
       "DEMACIA": [
-        { "name": "garen" ,
-          "rarity": "Legendary",
-          "attributes": [1, 1, 1, 1] 
-        },
-        { "name": "cavaleiro" ,
+        { "name": "garen", "rarity": "Legendary", "attributes": [1, 1, 1, 1] },
+        { "name": "cavaleiro", "rarity": "COMMON", "attributes": [1, 1, 1, 1] },
+        { "name": "duelista", "rarity": "COMMON", "attributes": [1, 1, 1, 1] },
+        { "name": "ferreiro", "rarity": "COMMON", "attributes": [1, 1, 1, 1] },
+        { "name": "mago_real", "rarity": "COMMON", "attributes": [1, 1, 1, 1] },
+        { "name": "novata", "rarity": "COMMON", "attributes": [1, 1, 1, 1] },
+        {
+          "name": "poro_guerreiro",
           "rarity": "COMMON",
-          "attributes": [1, 1, 1, 1] 
+          "attributes": [1, 1, 1, 1]
         },
-        { "name": "duelista" ,
-          "rarity": "COMMON",
-          "attributes": [1, 1, 1, 1] 
-        },
-        { "name": "ferreiro" ,
-          "rarity": "COMMON",
-          "attributes": [1, 1, 1, 1] 
-        },
-        { "name": "mago_real" ,
-          "rarity": "COMMON",
-          "attributes": [1, 1, 1, 1] 
-        },
-        { "name": "novata" ,
-          "rarity": "COMMON",
-          "attributes": [1, 1, 1, 1] 
-        },
-        { "name": "poro_guerreiro" ,
-          "rarity": "COMMON",
-          "attributes": [1, 1, 1, 1] 
-        },
-        { "name": "valquiria" ,
-          "rarity": "COMMON",
-          "attributes": [1, 1, 1, 1] 
-        }
+        { "name": "valquiria", "rarity": "COMMON", "attributes": [1, 1, 1, 1] }
       ]
     },
-    { "NOXUS": [
-      { "name": "darius_champion",
-        "rarity": "Legendary",
-        "attributes": [1, 1, 1, 1] 
-      },
-      { "name": "affectionate_poro" ,
-        "rarity": "COMMON",
-        "attributes": [1, 1, 1, 1] 
-      },
-      { "name": "aristocrat" ,
-        "rarity": "COMMON",
-        "attributes": [1, 1, 1, 1] 
-      },
-      { "name": "bookie" ,
-        "rarity": "COMMON",
-        "attributes": [1, 1, 1, 1] 
-      },
-      { "name": "draven" ,
-        "rarity": "COMMON",
-        "attributes": [1, 1, 1, 1] 
-      },
-      { "name": "drummer" ,
-        "rarity": "COMMON",
-        "attributes": [1, 1, 1, 1] 
-      },
-      { "name": "shiraza" ,
-        "rarity": "COMMON",
-        "attributes": [1, 1, 1, 1] 
-      },
-      { "name": "veteran" ,
-        "rarity": "COMMON",
-        "attributes": [1, 1, 1, 1] 
-      }
-    ] }
+    {
+      "NOXUS": [
+        {
+          "name": "darius_champion",
+          "rarity": "Legendary",
+          "attributes": [1, 1, 1, 1]
+        },
+        {
+          "name": "affectionate_poro",
+          "rarity": "COMMON",
+          "attributes": [1, 1, 1, 1]
+        },
+        {
+          "name": "aristocrat",
+          "rarity": "COMMON",
+          "attributes": [1, 1, 1, 1]
+        },
+        { "name": "bookie", "rarity": "COMMON", "attributes": [1, 1, 1, 1] },
+        { "name": "draven", "rarity": "COMMON", "attributes": [1, 1, 1, 1] },
+        { "name": "drummer", "rarity": "COMMON", "attributes": [1, 1, 1, 1] },
+        { "name": "shiraza", "rarity": "COMMON", "attributes": [1, 1, 1, 1] },
+        { "name": "veteran", "rarity": "COMMON", "attributes": [1, 1, 1, 1] }
+      ]
+    }
   ]
 }
