@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Card/GameCardClass.dart';
 import 'package:pac4/Pages/Game/Card/GameCard.dart';
 import 'package:pac4/Pages/Game/Tile/EmpetyTile.dart';
 import 'package:pac4/Pages/Game/Util/Decks/Demacia.dart';
@@ -19,6 +18,7 @@ class _HandPlayerState extends State<HandPlayer> {
     return Container(
       color: Colors.amber[300]!.withOpacity(0.8),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
             width: double.infinity,

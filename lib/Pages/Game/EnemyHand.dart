@@ -9,16 +9,13 @@ class HandEnemy extends StatelessWidget {
     return Container(
       color: Colors.amber[300]!.withOpacity(0.8),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               EmpetyTile(),
             ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [],
           ),
         ],
       ),
