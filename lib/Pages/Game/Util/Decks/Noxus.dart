@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Card/CardData.dart';
 
-class PlayerCards with ChangeNotifier {
+class EnemyCards with ChangeNotifier {
   final _enemyCards = <CardData?>[
     CardData(
       team: Team.ENEMY,

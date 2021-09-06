@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Tile/EmpetyTile.dart';
+import 'package:pac4/Pages/Game/Card/EnemyCard.dart';
+import 'package:pac4/Pages/Game/Util/Decks/Noxus.dart';
+import 'package:provider/provider.dart';
 
 class HandEnemy extends StatelessWidget {
   const HandEnemy({Key? key}) : super(key: key);
@@ -11,11 +13,16 @@ class HandEnemy extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              EmpetyTile(),
-            ],
+          Container(
+            width: double.infinity,
+            child: Consumer<EnemyCards>(
+              builder: (context, enemyCardsProvider, child) => Wrap(
+                alignment: WrapAlignment.spaceEvenly,
+                children: enemyCardsProvider.enemyCards
+                    .map((cardData) => EnemyCard(cardData))
+                    .toList(),
+              ),
+            ),
           ),
         ],
       ),
