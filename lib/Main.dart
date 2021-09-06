@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pac4/Pages/Game/Providers/BoardTiles.dart';
 import 'package:pac4/Pages/Game/Providers/EnemyCards.dart';
 import 'package:pac4/Pages/Game/Providers/PlayerCards.dart';
 import 'package:provider/provider.dart';
@@ -24,6 +25,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (BuildContext context) => EnemyCards(),
+        ),
+        ChangeNotifierProvider(
+          create: (BuildContext context) => BoardTiles(),
         ),
       ],
       child: MaterialApp(
