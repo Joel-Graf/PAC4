@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Card/EnemyCard.dart';
-import 'package:pac4/Pages/Game/Util/Decks/Noxus.dart';
+import 'package:pac4/Pages/Game/Providers/EnemyCards.dart';
+import 'package:pac4/Pages/Game/Widgets/Card/EnemyCard.dart';
 import 'package:provider/provider.dart';
 
 class HandEnemy extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Util/Decks/Demacia.dart';
-import 'package:pac4/Pages/Game/Util/Decks/Noxus.dart';
+import 'package:pac4/Pages/Game/Providers/EnemyCards.dart';
+import 'package:pac4/Pages/Game/Providers/PlayerCards.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
 import 'package:pac4/Pages/Game/GamePage.dart';

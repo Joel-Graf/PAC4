@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Card/CardData.dart';
+import 'package:pac4/Pages/Game/Widgets/Card/CardData.dart';
 
 class PlayerCards with ChangeNotifier {
   final _playerCards = <CardData?>[

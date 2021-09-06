@@ -1,6 +1,6 @@
-import 'package:pac4/Pages/Game/Card/CardData.dart';
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Util/MyCard.dart';
+import 'package:pac4/Pages/Game/Widgets/Card/CardData.dart';
 
 class CardModel extends StatelessWidget {
   final CardData cardData;

@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Card/CardData.dart';
-import 'package:pac4/Pages/Game/Card/CardModel.dart';
-import 'package:pac4/Pages/Game/Tile/EmpetyTile.dart';
-import 'package:pac4/Pages/Game/Util/Decks/Noxus.dart';
+import 'package:pac4/Pages/Game/Providers/PlayerCards.dart';
+import 'package:pac4/Pages/Game/Widgets/Card/CardData.dart';
+import 'package:pac4/Pages/Game/Widgets/Card/CardModel.dart';
+import 'package:pac4/Pages/Game/Widgets/Tile/EmpetyTile.dart';
 import 'package:provider/provider.dart';
 
-class EnemyCard extends StatefulWidget {
-  const EnemyCard(this.cardData, {Key? key}) : super(key: key);
+class PlayerCard extends StatefulWidget {
+  const PlayerCard(this.cardData, {Key? key}) : super(key: key);
 
   final CardData? cardData;
 
   @override
-  _EnemyCardState createState() => _EnemyCardState();
+  _PlayerCardState createState() => _PlayerCardState();
 }
 
-class _EnemyCardState extends State<EnemyCard> with ChangeNotifier {
+class _PlayerCardState extends State<PlayerCard> with ChangeNotifier {
   @override
   Widget build(BuildContext context) {
     return widget.cardData != null
@@ -33,8 +33,8 @@ class _EnemyCardState extends State<EnemyCard> with ChangeNotifier {
               cardData: widget.cardData!,
             ),
             onDragCompleted: () {
-              Provider.of<EnemyCards>(context, listen: false)
-                  .removeFromEnemyHand(widget.cardData!);
+              Provider.of<PlayerCards>(context, listen: false)
+                  .removeFromPlayerHand(widget.cardData!);
               notifyListeners();
             },
           )

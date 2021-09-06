@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Card/PlayerCard.dart';
-import 'package:pac4/Pages/Game/Util/Decks/Demacia.dart';
+import 'package:pac4/Pages/Game/Providers/PlayerCards.dart';
+import 'package:pac4/Pages/Game/Widgets/Card/PlayerCard.dart';
 import 'package:provider/provider.dart';
 
 class HandPlayer extends StatelessWidget {

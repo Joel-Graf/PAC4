@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Board.dart';
-import 'package:pac4/Pages/Game/Card/CardModel.dart';
-import 'package:pac4/Pages/Game/Tile/EmpetyTile.dart';
+import 'package:pac4/Pages/Game/Widgets/Board.dart';
+import 'package:pac4/Pages/Game/Widgets/Card/CardModel.dart';
+import 'package:pac4/Pages/Game/Widgets/Tile/EmpetyTile.dart';
 
 class BoardTile extends StatefulWidget {
   const BoardTile(Position position, {Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class BoardTile extends StatefulWidget {
   _BoardTileState createState() => _BoardTileState();
 }
 
-class _BoardTileState extends State<BoardTile> {
+class _BoardTileState extends State<BoardTile> with ChangeNotifier {
   CardModel? gameCardModel;
 
   @override
@@ -24,6 +24,9 @@ class _BoardTileState extends State<BoardTile> {
       },
       onAccept: (CardModel data) {
         this.gameCardModel = data;
+        //         Provider.of<EnemyCards>(context, listen: false)
+        //     .removeFromEnemyHand(widget.cardData!);
+        // notifyListeners();
       },
     );
   }
