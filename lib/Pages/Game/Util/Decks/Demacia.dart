@@ -63,8 +63,8 @@ class PlayerCards with ChangeNotifier {
 
   List<CardData?> get playerCards => [..._playerCards];
 
-  void removeFromPlayerHand(CardData gameCardData) {
-    final index = _playerCards.indexOf(gameCardData);
+  void removeFromPlayerHand(CardData cardData) {
+    final index = _playerCards.indexOf(cardData);
     _playerCards[index] = null;
     notifyListeners();
   }

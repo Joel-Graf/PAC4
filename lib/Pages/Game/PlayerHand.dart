@@ -16,7 +16,7 @@ class HandPlayer extends StatelessWidget {
           Container(
             width: double.infinity,
             child: Consumer<PlayerCards>(
-              builder: (context, playerCardsProvider, _) => Wrap(
+              builder: (context, playerCardsProvider, child) => Wrap(
                 alignment: WrapAlignment.spaceEvenly,
                 children: playerCardsProvider.playerCards
                     .map((cardData) => PlayerCard(cardData))
