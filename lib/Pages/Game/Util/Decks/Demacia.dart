@@ -61,7 +61,7 @@ class PlayerCards with ChangeNotifier {
     ),
   ];
 
-  List<CardData?> get deckDemacia => [..._playerCards];
+  List<CardData?> get playerCards => [..._playerCards];
 
   void removeFromPlayerHand(CardData gameCardData) {
     final index = _playerCards.indexOf(gameCardData);

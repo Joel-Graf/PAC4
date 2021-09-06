@@ -8,9 +8,6 @@ class HandPlayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<PlayerCards>(context);
-    final playerHand = provider.deckDemacia;
-
     return Container(
       color: Colors.amber[300]!.withOpacity(0.8),
       child: Column(
@@ -18,10 +15,13 @@ class HandPlayer extends StatelessWidget {
         children: [
           Container(
             width: double.infinity,
-            child: Wrap(
-              alignment: WrapAlignment.spaceEvenly,
-              children:
-                  playerHand.map((gameClass) => PlayerCard(gameClass)).toList(),
+            child: Consumer<PlayerCards>(
+              builder: (context, playerCardsProvider, _) => Wrap(
+                alignment: WrapAlignment.spaceEvenly,
+                children: playerCardsProvider.playerCards
+                    .map((cardData) => PlayerCard(cardData))
+                    .toList(),
+              ),
             ),
           ),
         ],
