@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Util/Classes.dart';
-import 'package:pac4/Pages/Game/Util/Enums.dart';
+import 'package:pac4/Pages/Game/Util/Constants.dart';
 import 'package:pac4/Pages/Game/Util/MyCard.dart';
-import 'package:pac4/Pages/Game/Widgets/Card/GameCardModel.dart';
+import 'package:pac4/Pages/Game/Widgets/Hands/Card/GameCardModel.dart';
 
 class GameCardView extends StatelessWidget {
   const GameCardView({

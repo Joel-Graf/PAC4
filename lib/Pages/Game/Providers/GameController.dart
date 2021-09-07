@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Util/Enums.dart';
+import 'package:pac4/Pages/Game/Util/Constants.dart';
 
 class GameController with ChangeNotifier {
   Team _turn = Team.PLAYER;

@@ -1,5 +1,5 @@
 import 'package:pac4/Pages/Game/Util/Classes.dart';
-import 'package:pac4/Pages/Game/Util/Enums.dart';
+import 'package:pac4/Pages/Game/Util/Constants.dart';
 
 class GameCardModel {
   GameCardModel({

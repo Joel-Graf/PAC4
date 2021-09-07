@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Providers/BoardController.dart';
-import 'package:pac4/Pages/Game/Widgets/BoardTile/BoardTileView.dart';
+import 'package:pac4/Pages/Game/Widgets/Board/BoardTile/BoardTileView.dart';
 import 'package:provider/provider.dart';
 
 class Board extends StatelessWidget {

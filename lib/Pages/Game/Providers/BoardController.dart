@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:pac4/Pages/Game/Util/Classes.dart';
-import 'package:pac4/Pages/Game/Util/Enums.dart';
-import 'package:pac4/Pages/Game/Widgets/BoardTile/BoardTileModel.dart';
-import 'package:pac4/Pages/Game/Widgets/Card/GameCardModel.dart';
+import 'package:pac4/Pages/Game/Util/Constants.dart';
+import 'package:pac4/Pages/Game/Widgets/Board/BoardTile/BoardTileModel.dart';
+import 'package:pac4/Pages/Game/Widgets/Hands/Card/GameCardModel.dart';
 
 class BoardController with ChangeNotifier {
   final List<BoardTileModel> _boardTiles = [

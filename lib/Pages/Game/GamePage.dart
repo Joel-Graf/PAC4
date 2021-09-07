@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Widgets/Board.dart';
-import 'package:pac4/Pages/Game/Widgets/EnemyHand.dart';
-import 'package:pac4/Pages/Game/Widgets/PlayerHand.dart';
+import 'package:pac4/Pages/Game/Widgets/Board/Board.dart';
+import 'package:pac4/Pages/Game/Widgets/Hands/EnemyHand.dart';
+import 'package:pac4/Pages/Game/Widgets/Hands/PlayerHand.dart';
 
 class GamePage extends StatelessWidget {
   const GamePage({Key? key}) : super(key: key);
