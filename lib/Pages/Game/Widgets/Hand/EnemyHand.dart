@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Providers/EnemyCards.dart';
 import 'package:pac4/Pages/Game/Providers/GameController.dart';
+import 'package:pac4/Pages/Game/Providers/HandController.dart';
 import 'package:pac4/Pages/Game/Util/Constants.dart';
 import 'package:pac4/Pages/Game/Widgets/Hand/Card/EnemyCard.dart';
 import 'package:provider/provider.dart';
@@ -20,12 +20,12 @@ class HandEnemy extends StatelessWidget {
           children: [
             Container(
               width: double.infinity,
-              child: Consumer<EnemyCards>(
+              child: Consumer<EnemyController>(
                 builder: (context, enemyCardsProvider, child) =>
                     SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: enemyCardsProvider.enemyCards
+                    children: enemyCardsProvider.cards
                         .map((cardData) => Padding(
                               padding: const EdgeInsets.all(3.0),
                               child: EnemyCard(cardData),

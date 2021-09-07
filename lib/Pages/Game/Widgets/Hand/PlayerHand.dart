@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Providers/GameController.dart';
-import 'package:pac4/Pages/Game/Providers/PlayerCards.dart';
+import 'package:pac4/Pages/Game/Providers/HandController.dart';
 import 'package:pac4/Pages/Game/Util/Constants.dart';
 import 'package:pac4/Pages/Game/Widgets/Hand/Card/PlayerCard.dart';
 import 'package:provider/provider.dart';
@@ -22,10 +22,10 @@ class HandPlayer extends StatelessWidget {
                 children: [
                   Container(
                     width: double.infinity,
-                    child: Consumer<PlayerCards>(
+                    child: Consumer<PlayerController>(
                       builder: (context, playerCardsProvider, child) => Wrap(
                         alignment: WrapAlignment.spaceEvenly,
-                        children: playerCardsProvider.playerCards
+                        children: playerCardsProvider.cards
                             .map((cardData) => PlayerCard(cardData))
                             .toList(),
                       ),

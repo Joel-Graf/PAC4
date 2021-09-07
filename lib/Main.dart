@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Providers/BoardController.dart';
-import 'package:pac4/Pages/Game/Providers/EnemyCards.dart';
 import 'package:pac4/Pages/Game/Providers/GameController.dart';
-import 'package:pac4/Pages/Game/Providers/PlayerCards.dart';
+import 'package:pac4/Pages/Game/Providers/HandController.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
 import 'package:pac4/Pages/Game/GamePage.dart';
@@ -20,10 +19,10 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (BuildContext context) => PlayerCards(),
+          create: (BuildContext context) => playerController,
         ),
         ChangeNotifierProvider(
-          create: (BuildContext context) => EnemyCards(),
+          create: (BuildContext context) => enemyController,
         ),
         ChangeNotifierProvider(
           create: (BuildContext context) => BoardController(),

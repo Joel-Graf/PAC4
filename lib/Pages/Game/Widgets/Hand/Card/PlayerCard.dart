@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Providers/GameController.dart';
-import 'package:pac4/Pages/Game/Providers/PlayerCards.dart';
+import 'package:pac4/Pages/Game/Providers/HandController.dart';
 import 'package:pac4/Pages/Game/Util/EmpetyTile.dart';
 import 'package:pac4/Pages/Game/Widgets/Hand/Card/GameCardModel.dart';
 import 'package:pac4/Pages/Game/Widgets/Hand/Card/GameCardView.dart';
@@ -32,8 +32,8 @@ class _PlayerCardState extends State<PlayerCard> with ChangeNotifier {
             childWhenDragging: EmpetyTile(),
             data: widget.model!,
             onDragCompleted: () {
-              Provider.of<PlayerCards>(context, listen: false)
-                  .removeFromPlayerHand(widget.model!);
+              Provider.of<PlayerController>(context, listen: false)
+                  .remove(widget.model!);
               Provider.of<GameController>(context, listen: false).changeTurn();
               notifyListeners();
             },
