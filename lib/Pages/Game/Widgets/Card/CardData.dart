@@ -1,3 +1,5 @@
+import 'package:pac4/Pages/Game/Widgets/Board.dart';
+
 class CardData {
   Team team;
   Region region;
@@ -14,6 +16,11 @@ class CardData {
     required this.atributtes,
     this.powers,
   });
+
+  CardData getFlipped() {
+    this.team = this.team == Team.PLAYER ? Team.ENEMY : Team.PLAYER;
+    return this;
+  }
 }
 
 enum Team { PLAYER, ENEMY }
@@ -25,12 +32,19 @@ const Map Regions = {Region.DEMACIA: 'demacia', Region.NOXUS: 'noxus'};
 enum Rarity { COMMON, RARE, EPIC, LEGENDARY }
 
 class Attributes {
-  int top;
-  int rigth;
-  int bottom;
-  int left;
+  int _top;
+  int _right;
+  int _bottom;
+  int _left;
 
-  Attributes(this.top, this.rigth, this.bottom, this.left);
+  Map<Direction, int> get values => {
+        Direction.TOP: _top,
+        Direction.RIGHT: _right,
+        Direction.BOTTOM: _bottom,
+        Direction.LEFT: _left
+      };
+
+  Attributes(this._top, this._right, this._bottom, this._left);
 }
 
 class Powers {

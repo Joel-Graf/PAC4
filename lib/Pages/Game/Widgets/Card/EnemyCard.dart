@@ -19,7 +19,7 @@ class _EnemyCardState extends State<EnemyCard> with ChangeNotifier {
   @override
   Widget build(BuildContext context) {
     return widget.cardData != null
-        ? Draggable<CardModel>(
+        ? Draggable<CardData>(
             child: CardModel(
               cardData: widget.cardData!,
             ),
@@ -30,9 +30,7 @@ class _EnemyCardState extends State<EnemyCard> with ChangeNotifier {
               ),
             ),
             childWhenDragging: EmpetyTile(),
-            data: CardModel(
-              cardData: widget.cardData!,
-            ),
+            data: widget.cardData!,
             onDragCompleted: () {
               Provider.of<EnemyCards>(context, listen: false)
                   .removeFromEnemyHand(widget.cardData!);

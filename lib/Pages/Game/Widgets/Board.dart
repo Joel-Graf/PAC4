@@ -59,23 +59,23 @@ class Position {
 
   Position(this.col, this.row);
 
-  List<Position> getNeighboursPos() {
-    int actualCol = this.col;
-    int actualRow = this.row;
+  Map<Direction, Position> getNeighboursPos() {
+    int actualCol = col;
+    int actualRow = row;
 
-    List<Position> neighbours = [];
+    Map<Direction, Position> neighbours = {};
 
-    if (isValidPosition(actualCol + 1)) {
-      neighbours.add(Position(actualCol + 1, actualRow));
+    if (isValidPosition(actualRow - 1)) {
+      neighbours[Direction.TOP] = Position(actualCol, actualRow - 1);
     }
-    if (isValidPosition(actualCol - 1)) {
-      neighbours.add(Position(actualCol - 1, actualRow));
+    if (isValidPosition(actualCol + 1)) {
+      neighbours[Direction.RIGHT] = Position(actualCol + 1, actualRow);
     }
     if (isValidPosition(actualRow + 1)) {
-      neighbours.add(Position(actualCol, actualRow + 1));
+      neighbours[Direction.BOTTOM] = Position(actualCol, actualRow + 1);
     }
-    if (isValidPosition(actualRow - 1)) {
-      neighbours.add(Position(actualRow, actualRow - 1));
+    if (isValidPosition(actualCol - 1)) {
+      neighbours[Direction.LEFT] = Position(actualCol - 1, actualRow);
     }
 
     return neighbours;
@@ -85,3 +85,5 @@ class Position {
     return (pos >= 0 && pos < 4);
   }
 }
+
+enum Direction { TOP, RIGHT, BOTTOM, LEFT }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Util/MyCard.dart';
+import 'package:pac4/Pages/Game/Widgets/Board.dart';
 import 'package:pac4/Pages/Game/Widgets/Card/CardData.dart';
 
 class CardModel extends StatelessWidget {
@@ -126,16 +127,16 @@ class AttributesModel extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        AttributeText(attributes.top.toString()),
+        AttributeText(attributes.values[Direction.TOP].toString()),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            AttributeText(attributes.left.toString()),
+            AttributeText(attributes.values[Direction.LEFT].toString()),
             AttributeText(' '),
-            AttributeText(attributes.rigth.toString())
+            AttributeText(attributes.values[Direction.RIGHT].toString())
           ],
         ),
-        AttributeText(attributes.bottom.toString())
+        AttributeText(attributes.values[Direction.BOTTOM].toString())
       ],
     );
   }
