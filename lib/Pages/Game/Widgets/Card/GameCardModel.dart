@@ -1,4 +1,4 @@
-class CardData {
+class GameCardModel {
   Team team;
   Region region;
   String name;
@@ -6,7 +6,7 @@ class CardData {
   Attributes atributtes;
   List<Powers>? powers;
 
-  CardData({
+  GameCardModel({
     required this.team,
     required this.region,
     required this.name,
@@ -15,7 +15,7 @@ class CardData {
     this.powers,
   });
 
-  CardData getFlipped() {
+  GameCardModel getFlipped() {
     this.team = this.team == Team.PLAYER ? Team.ENEMY : Team.PLAYER;
     return this;
   }

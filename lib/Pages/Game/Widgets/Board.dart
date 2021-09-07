@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Providers/BoardTiles.dart';
-import 'package:pac4/Pages/Game/Widgets/Tile/BoardTile.dart';
+import 'package:pac4/Pages/Game/Providers/BoardTilesController.dart';
+import 'package:pac4/Pages/Game/Widgets/BoardTile/BoardTileView.dart';
 import 'package:provider/provider.dart';
 
 class Board extends StatelessWidget {
@@ -9,43 +9,43 @@ class Board extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<BoardTiles>(
-      builder: (context, boardTilesProvider, child) => Column(
+      builder: (context, boardTilesController, child) => Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              BoardTile(boardTilesProvider.boardTiles[12]),
-              BoardTile(boardTilesProvider.boardTiles[13]),
-              BoardTile(boardTilesProvider.boardTiles[14]),
-              BoardTile(boardTilesProvider.boardTiles[15]),
+              BoardTile(boardTilesController.boardTiles[12]),
+              BoardTile(boardTilesController.boardTiles[13]),
+              BoardTile(boardTilesController.boardTiles[14]),
+              BoardTile(boardTilesController.boardTiles[15]),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              BoardTile(boardTilesProvider.boardTiles[8]),
-              BoardTile(boardTilesProvider.boardTiles[9]),
-              BoardTile(boardTilesProvider.boardTiles[10]),
-              BoardTile(boardTilesProvider.boardTiles[11]),
+              BoardTile(boardTilesController.boardTiles[8]),
+              BoardTile(boardTilesController.boardTiles[9]),
+              BoardTile(boardTilesController.boardTiles[10]),
+              BoardTile(boardTilesController.boardTiles[11]),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              BoardTile(boardTilesProvider.boardTiles[4]),
-              BoardTile(boardTilesProvider.boardTiles[5]),
-              BoardTile(boardTilesProvider.boardTiles[6]),
-              BoardTile(boardTilesProvider.boardTiles[7]),
+              BoardTile(boardTilesController.boardTiles[4]),
+              BoardTile(boardTilesController.boardTiles[5]),
+              BoardTile(boardTilesController.boardTiles[6]),
+              BoardTile(boardTilesController.boardTiles[7]),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              BoardTile(boardTilesProvider.boardTiles[0]),
-              BoardTile(boardTilesProvider.boardTiles[1]),
-              BoardTile(boardTilesProvider.boardTiles[2]),
-              BoardTile(boardTilesProvider.boardTiles[3]),
+              BoardTile(boardTilesController.boardTiles[0]),
+              BoardTile(boardTilesController.boardTiles[1]),
+              BoardTile(boardTilesController.boardTiles[2]),
+              BoardTile(boardTilesController.boardTiles[3]),
             ],
           ),
         ],

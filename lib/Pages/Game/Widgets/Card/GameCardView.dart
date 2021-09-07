@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Util/MyCard.dart';
-import 'package:pac4/Pages/Game/Widgets/Card/CardData.dart';
+import 'package:pac4/Pages/Game/Widgets/Card/GameCardModel.dart';
 
-class CardModel extends StatelessWidget {
-  final CardData cardData;
+class GameCardView extends StatelessWidget {
+  final GameCardModel model;
 
-  const CardModel({Key? key, required this.cardData}) : super(key: key);
+  const GameCardView({
+    Key? key,
+    required this.model,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +16,12 @@ class CardModel extends StatelessWidget {
       child: Stack(
         children: [
           GameCardBackground(
-            image: '${Regions[cardData.region]}/${cardData.name}',
-            team: cardData.team,
+            image: '${Regions[model.region]}/${model.name}',
+            team: model.team,
           ),
           GameCardContent(
-            cardData.atributtes,
-            cardData.region,
+            model.atributtes,
+            model.region,
           ),
         ],
       ),

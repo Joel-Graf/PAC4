@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Providers/BoardTiles.dart';
+import 'package:pac4/Pages/Game/Providers/BoardTilesController.dart';
 import 'package:pac4/Pages/Game/Providers/EnemyCards.dart';
-import 'package:pac4/Pages/Game/Providers/Game.dart';
+import 'package:pac4/Pages/Game/Providers/GameController.dart';
 import 'package:pac4/Pages/Game/Providers/PlayerCards.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           create: (BuildContext context) => BoardTiles(),
         ),
         ChangeNotifierProvider(
-          create: (BuildContext context) => Game(),
+          create: (BuildContext context) => GameController(),
         ),
       ], // TODO: Colocar em locais mais próximos da realidade para mais desempenho
       child: MaterialApp(

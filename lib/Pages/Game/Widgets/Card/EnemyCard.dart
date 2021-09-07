@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Providers/EnemyCards.dart';
-import 'package:pac4/Pages/Game/Providers/Game.dart';
-import 'package:pac4/Pages/Game/Widgets/Card/CardData.dart';
-import 'package:pac4/Pages/Game/Widgets/Card/CardModel.dart';
-import 'package:pac4/Pages/Game/Widgets/Tile/EmpetyTile.dart';
+import 'package:pac4/Pages/Game/Providers/GameController.dart';
+import 'package:pac4/Pages/Game/Widgets/Card/GameCardModel.dart';
+import 'package:pac4/Pages/Game/Widgets/Card/GameCardView.dart';
+import 'package:pac4/Pages/Game/Util/EmpetyTile.dart';
 import 'package:provider/provider.dart';
 
 class EnemyCard extends StatefulWidget {
-  const EnemyCard(this.cardData, {Key? key}) : super(key: key);
+  const EnemyCard(this.model, {Key? key}) : super(key: key);
 
-  final CardData? cardData;
+  final GameCardModel? model;
 
   @override
   _EnemyCardState createState() => _EnemyCardState();
@@ -18,23 +18,23 @@ class EnemyCard extends StatefulWidget {
 class _EnemyCardState extends State<EnemyCard> with ChangeNotifier {
   @override
   Widget build(BuildContext context) {
-    return widget.cardData != null
-        ? Draggable<CardData>(
-            child: CardModel(
-              cardData: widget.cardData!,
+    return widget.model != null
+        ? Draggable<GameCardModel>(
+            child: GameCardView(
+              model: widget.model!,
             ),
             feedback: Material(
               color: Colors.transparent,
-              child: CardModel(
-                cardData: widget.cardData!,
+              child: GameCardView(
+                model: widget.model!,
               ),
             ),
             childWhenDragging: EmpetyTile(),
-            data: widget.cardData!,
+            data: widget.model!,
             onDragCompleted: () {
               Provider.of<EnemyCards>(context, listen: false)
-                  .removeFromEnemyHand(widget.cardData!);
-              Provider.of<Game>(context, listen: false).changeTurn();
+                  .removeFromEnemyHand(widget.model!);
+              Provider.of<GameController>(context, listen: false).changeTurn();
               notifyListeners();
             },
           )

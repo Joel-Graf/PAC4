@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Providers/Game.dart';
+import 'package:pac4/Pages/Game/Providers/GameController.dart';
 import 'package:pac4/Pages/Game/Providers/PlayerCards.dart';
-import 'package:pac4/Pages/Game/Widgets/Card/CardData.dart';
+import 'package:pac4/Pages/Game/Widgets/Card/GameCardModel.dart';
 import 'package:pac4/Pages/Game/Widgets/Card/PlayerCard.dart';
 import 'package:provider/provider.dart';
 
@@ -10,7 +10,7 @@ class HandPlayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<Game>(
+    return Consumer<GameController>(
       builder: (context, gameProvider, child) => IgnorePointer(
         ignoring: gameProvider.turn != Team.PLAYER,
         child: Stack(
