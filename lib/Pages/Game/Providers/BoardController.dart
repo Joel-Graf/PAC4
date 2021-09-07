@@ -26,19 +26,35 @@ class BoardController with ChangeNotifier {
 
   List<BoardTileModel> get boardTiles => [..._boardTiles];
 
-  void onCardPlay(BoardTileModel playedData) {
-    _updateBoardTile(playedData);
-    final List<Point> neighbours = playedData.point.getNeighbours();
-    neighbours.forEach((point) {
-      final BoardTileModel data = BoardTileModel(point, _getCardData(point));
-      if (data.cardModel != null &&
-          _isOppositeTeam(playedData.cardModel!, data.cardModel!) &&
-          _hasHigherAttributes(playedData, data)) {
-        data.cardModel!.flip();
-        _updateBoardTile(data);
-      }
+  void onCardPlay(BoardTileModel played) {
+    _updateBoardTile(played);
+    final List<Point> neighboursPoints = played.point.getNeighbours();
+    final List<BoardTileModel> neighbours = _getTileModels(neighboursPoints);
+    neighbours.forEach((neighbour) {
+      if (_hasCard(neighbour.point))
+        _tryToFlip(played, _getBoardTile(neighbour.point));
     });
     notifyListeners();
+  }
+
+  List<BoardTileModel> _getTileModels(List<Point> points) {
+    return [
+      ...points.map((point) =>
+          _hasCard(point) ? _getBoardTile(point) : BoardTileModel(point, null))
+    ];
+  }
+
+  bool _hasCard(Point point) {
+    final index = _getIndex(point);
+    return _boardTiles[index].cardModel != null;
+  }
+
+  void _tryToFlip(BoardTileModel played, BoardTileModel neighbour) {
+    if (_isOppositeTeam(played.cardModel!, neighbour.cardModel!) &&
+        _hasHigherAttributes(played, neighbour)) {
+      neighbour.cardModel!.flip();
+      _updateBoardTile(neighbour);
+    }
   }
 
   void _updateBoardTile(BoardTileModel data) {
@@ -46,29 +62,28 @@ class BoardController with ChangeNotifier {
     _boardTiles[index] = BoardTileModel(data.point, data.cardModel);
   }
 
-  GameCardModel? _getCardData(Point point) {
+  BoardTileModel _getBoardTile(Point point) {
     final index = _getIndex(point);
-    return _boardTiles[index].cardModel;
+    return BoardTileModel(point, _boardTiles[index].cardModel!);
   }
 
   int _getIndex(Point point) {
     return point.x + point.y * 4;
   }
 
-  bool _isOppositeTeam(GameCardModel playedData, GameCardModel neighbourData) {
-    return playedData.team != neighbourData.team;
+  bool _isOppositeTeam(GameCardModel played, GameCardModel neighbour) {
+    return played.team != neighbour.team;
   }
 
-  bool _hasHigherAttributes(
-      BoardTileModel playedData, BoardTileModel neighbourData) {
+  bool _hasHigherAttributes(BoardTileModel played, BoardTileModel neighbour) {
     final Direction neighbourDirection =
-        _getDirection(playedData.point, neighbourData.point);
+        _getDirection(played.point, neighbour.point);
     final int playedValue =
-        playedData.cardModel!.atributtes.values[neighbourDirection]!;
+        played.cardModel!.atributtes.values[neighbourDirection]!;
 
     final Direction playerDirection = _getOpposite(neighbourDirection);
     final int neighbourValue =
-        neighbourData.cardModel!.atributtes.values[playerDirection]!;
+        neighbour.cardModel!.atributtes.values[playerDirection]!;
 
     return playedValue > neighbourValue;
   }
