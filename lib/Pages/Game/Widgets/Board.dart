@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Providers/BoardTiles.dart';
+import 'package:pac4/Pages/Game/Widgets/Tile/BoardTile.dart';
 import 'package:provider/provider.dart';
 
 class Board extends StatelessWidget {
@@ -14,37 +15,37 @@ class Board extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              boardTilesProvider.boardTiles[0],
-              boardTilesProvider.boardTiles[1],
-              boardTilesProvider.boardTiles[2],
-              boardTilesProvider.boardTiles[3],
+              BoardTile(boardTilesProvider.boardTiles[12]),
+              BoardTile(boardTilesProvider.boardTiles[13]),
+              BoardTile(boardTilesProvider.boardTiles[14]),
+              BoardTile(boardTilesProvider.boardTiles[15]),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              boardTilesProvider.boardTiles[4],
-              boardTilesProvider.boardTiles[5],
-              boardTilesProvider.boardTiles[6],
-              boardTilesProvider.boardTiles[7],
+              BoardTile(boardTilesProvider.boardTiles[8]),
+              BoardTile(boardTilesProvider.boardTiles[9]),
+              BoardTile(boardTilesProvider.boardTiles[10]),
+              BoardTile(boardTilesProvider.boardTiles[11]),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              boardTilesProvider.boardTiles[8],
-              boardTilesProvider.boardTiles[9],
-              boardTilesProvider.boardTiles[10],
-              boardTilesProvider.boardTiles[11],
+              BoardTile(boardTilesProvider.boardTiles[4]),
+              BoardTile(boardTilesProvider.boardTiles[5]),
+              BoardTile(boardTilesProvider.boardTiles[6]),
+              BoardTile(boardTilesProvider.boardTiles[7]),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              boardTilesProvider.boardTiles[12],
-              boardTilesProvider.boardTiles[13],
-              boardTilesProvider.boardTiles[14],
-              boardTilesProvider.boardTiles[15],
+              BoardTile(boardTilesProvider.boardTiles[0]),
+              BoardTile(boardTilesProvider.boardTiles[1]),
+              BoardTile(boardTilesProvider.boardTiles[2]),
+              BoardTile(boardTilesProvider.boardTiles[3]),
             ],
           ),
         ],
@@ -53,37 +54,34 @@ class Board extends StatelessWidget {
   }
 }
 
-class Position {
-  int col;
-  int row;
+class Point {
+  int x;
+  int y;
 
-  Position(this.col, this.row);
+  Point(this.x, this.y);
 
-  Map<Direction, Position> getNeighboursPos() {
-    int actualCol = col;
-    int actualRow = row;
+  List<Point> getNeighbours() {
+    List<Point> neighbours = [];
 
-    Map<Direction, Position> neighbours = {};
-
-    if (isValidPosition(actualRow - 1)) {
-      neighbours[Direction.TOP] = Position(actualCol, actualRow - 1);
+    if (_isValidPoint(y + 1)) {
+      neighbours.add(Point(x, y + 1));
     }
-    if (isValidPosition(actualCol + 1)) {
-      neighbours[Direction.RIGHT] = Position(actualCol + 1, actualRow);
+    if (_isValidPoint(x + 1)) {
+      neighbours.add(Point(x + 1, y));
     }
-    if (isValidPosition(actualRow + 1)) {
-      neighbours[Direction.BOTTOM] = Position(actualCol, actualRow + 1);
+    if (_isValidPoint(y - 1)) {
+      neighbours.add(Point(x, y - 1));
     }
-    if (isValidPosition(actualCol - 1)) {
-      neighbours[Direction.LEFT] = Position(actualCol - 1, actualRow);
+    if (_isValidPoint(x - 1)) {
+      neighbours.add(Point(x - 1, y));
     }
 
     return neighbours;
   }
 
-  bool isValidPosition(int pos) {
-    return (pos >= 0 && pos < 4);
+  bool _isValidPoint(int point) {
+    return (point >= 0 && point < 4);
   }
-}
 
-enum Direction { TOP, RIGHT, BOTTOM, LEFT }
+  getNeighboursPos() {}
+}

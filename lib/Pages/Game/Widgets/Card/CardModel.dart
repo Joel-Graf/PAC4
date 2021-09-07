@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Util/MyCard.dart';
-import 'package:pac4/Pages/Game/Widgets/Board.dart';
 import 'package:pac4/Pages/Game/Widgets/Card/CardData.dart';
 
 class CardModel extends StatelessWidget {
@@ -82,33 +81,7 @@ class GameCardContent extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  bottom: 3,
-                  right: 3,
-                ),
-                child: SizedBox(
-                  height: 24,
-                  width: 24,
-                  child: ClipOval(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.7),
-                            blurRadius: 0.4,
-                            offset: Offset(0, 0),
-                          ),
-                        ],
-                      ),
-                      child: Image.asset(
-                        'assets/images/regions/${Regions[region]}.png',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              RegionModel(region),
             ],
           ),
         ],
@@ -171,6 +144,43 @@ class AttributeText extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class RegionModel extends StatelessWidget {
+  final Region region;
+
+  const RegionModel(this.region, {Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(
+        bottom: 3,
+        right: 3,
+      ),
+      child: SizedBox(
+        height: 24,
+        width: 24,
+        child: ClipOval(
+          child: Container(
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.7),
+                  blurRadius: 0.4,
+                  offset: Offset(0, 0),
+                ),
+              ],
+            ),
+            child: Image.asset(
+              'assets/images/regions/${Regions[region]}.png',
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

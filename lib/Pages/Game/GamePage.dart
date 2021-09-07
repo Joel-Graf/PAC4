@@ -15,15 +15,15 @@ class GamePage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Flexible(
-                flex: 2,
+                flex: 1,
                 child: HandEnemy(),
               ),
               Expanded(
-                flex: 8,
+                flex: 4,
                 child: Board(),
               ),
               Flexible(
-                flex: 4,
+                flex: 2,
                 child: HandPlayer(),
               ),
             ],

@@ -3,7 +3,6 @@ import 'package:pac4/Pages/Game/Providers/EnemyCards.dart';
 import 'package:pac4/Pages/Game/Widgets/Card/CardData.dart';
 import 'package:pac4/Pages/Game/Widgets/Card/CardModel.dart';
 import 'package:pac4/Pages/Game/Widgets/Tile/EmpetyTile.dart';
-
 import 'package:provider/provider.dart';
 
 class EnemyCard extends StatefulWidget {

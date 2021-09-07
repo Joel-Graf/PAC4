@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Providers/BoardTiles.dart';
-import 'package:pac4/Pages/Game/Widgets/Board.dart';
 import 'package:pac4/Pages/Game/Widgets/Card/CardData.dart';
 import 'package:pac4/Pages/Game/Widgets/Card/CardModel.dart';
+import 'package:pac4/Pages/Game/Widgets/Tile/BoardTileData.dart';
 import 'package:pac4/Pages/Game/Widgets/Tile/EmpetyTile.dart';
 import 'package:provider/provider.dart';
 
 class BoardTile extends StatefulWidget {
-  const BoardTile(this.position, this.cardData, {Key? key}) : super(key: key);
+  const BoardTile(this.data, {Key? key}) : super(key: key);
 
-  final Position position;
-  final CardData? cardData;
+  final BoardTileData data;
 
   @override
   _BoardTileState createState() => _BoardTileState();
@@ -21,16 +20,18 @@ class _BoardTileState extends State<BoardTile> with ChangeNotifier {
   Widget build(BuildContext context) {
     return DragTarget(
       builder: (context, List<Object?> candidateData, rejectedData) {
-        return widget.cardData != null
-            ? CardModel(cardData: widget.cardData!)
+        return widget.data.cardData != null
+            ? CardModel(cardData: widget.data.cardData!)
             : EmpetyTile();
       },
       onWillAccept: (data) {
-        return widget.cardData == null;
+        return widget.data.cardData == null;
       },
-      onAccept: (CardData cardData) {
-        Provider.of<BoardTiles>(context, listen: false)
-            .onCardPlay(widget.position, cardData);
+      onAccept: (CardData data) {
+        final newData = BoardTileData(widget.data.point, data);
+        Provider.of<BoardTiles>(context, listen: false).onCardPlay(
+          newData,
+        );
         notifyListeners();
       },
     );

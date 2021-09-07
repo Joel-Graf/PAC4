@@ -1,5 +1,3 @@
-import 'package:pac4/Pages/Game/Widgets/Board.dart';
-
 class CardData {
   Team team;
   Region region;
@@ -46,6 +44,8 @@ class Attributes {
 
   Attributes(this._top, this._right, this._bottom, this._left);
 }
+
+enum Direction { TOP, RIGHT, BOTTOM, LEFT }
 
 class Powers {
   String name;

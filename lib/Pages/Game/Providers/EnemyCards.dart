@@ -36,28 +36,28 @@ class EnemyCards with ChangeNotifier {
       region: Region.NOXUS,
       name: 'draven',
       rarity: Rarity.COMMON,
-      atributtes: Attributes(1, 1, 1, 1),
+      atributtes: Attributes(4, 1, 3, 0),
     ),
     CardData(
       team: Team.ENEMY,
       region: Region.NOXUS,
       name: 'drummer',
       rarity: Rarity.COMMON,
-      atributtes: Attributes(1, 1, 1, 1),
+      atributtes: Attributes(0, 1, 2, 1),
     ),
     CardData(
       team: Team.ENEMY,
       region: Region.NOXUS,
       name: 'shiraza',
       rarity: Rarity.COMMON,
-      atributtes: Attributes(1, 1, 1, 1),
+      atributtes: Attributes(100, 100, 100, 100),
     ),
     CardData(
       team: Team.ENEMY,
       region: Region.NOXUS,
       name: 'veteran',
       rarity: Rarity.COMMON,
-      atributtes: Attributes(1, 1, 1, 1),
+      atributtes: Attributes(0, 5, 2, 10),
     ),
   ];
 
