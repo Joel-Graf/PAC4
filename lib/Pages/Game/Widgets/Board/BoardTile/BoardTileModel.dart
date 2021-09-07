@@ -6,4 +6,6 @@ class BoardTileModel {
 
   final Point point;
   final GameCardModel? cardModel;
+
+  List<Point> get neighboursPoints => point.getNeighbours();
 }

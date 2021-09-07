@@ -28,33 +28,8 @@ class BoardController with ChangeNotifier {
 
   void onCardPlay(BoardTileModel played) {
     _updateBoardTile(played);
-    final List<Point> neighboursPoints = played.point.getNeighbours();
-    final List<BoardTileModel> neighbours = _getTileModels(neighboursPoints);
-    neighbours.forEach((neighbour) {
-      if (_hasCard(neighbour.point))
-        _tryToFlip(played, _getBoardTile(neighbour.point));
-    });
+    _tryToFlipNeighbours(played);
     notifyListeners();
-  }
-
-  List<BoardTileModel> _getTileModels(List<Point> points) {
-    return [
-      ...points.map((point) =>
-          _hasCard(point) ? _getBoardTile(point) : BoardTileModel(point, null))
-    ];
-  }
-
-  bool _hasCard(Point point) {
-    final index = _getIndex(point);
-    return _boardTiles[index].cardModel != null;
-  }
-
-  void _tryToFlip(BoardTileModel played, BoardTileModel neighbour) {
-    if (_isOppositeTeam(played.cardModel!, neighbour.cardModel!) &&
-        _hasHigherAttributes(played, neighbour)) {
-      neighbour.cardModel!.flip();
-      _updateBoardTile(neighbour);
-    }
   }
 
   void _updateBoardTile(BoardTileModel data) {
@@ -62,17 +37,45 @@ class BoardController with ChangeNotifier {
     _boardTiles[index] = BoardTileModel(data.point, data.cardModel);
   }
 
-  BoardTileModel _getBoardTile(Point point) {
+  void _tryToFlipNeighbours(played) {
+    final List<BoardTileModel> neighbours =
+        _getNeighbours(played.neighboursPoints);
+    neighbours.forEach((neighbour) {
+      if (_isFlippable(played, neighbour)) _flip(neighbour);
+    });
+  }
+
+  List<BoardTileModel> _getNeighbours(List<Point> points) {
+    return [...points.map((point) => _getNeighbour(point))];
+  }
+
+  bool _isFlippable(BoardTileModel played, BoardTileModel neighbour) {
+    // CHECK for NULL first!
+    return _hasCard(neighbour) &&
+        _isOppositeTeam(played, neighbour) &&
+        _hasHigherAttributes(played, neighbour);
+  }
+
+  void _flip(BoardTileModel model) {
+    model.cardModel!.flip();
+    _updateBoardTile(model);
+  }
+
+  BoardTileModel _getNeighbour(Point point) {
     final index = _getIndex(point);
-    return BoardTileModel(point, _boardTiles[index].cardModel!);
+    return BoardTileModel(point, _boardTiles[index].cardModel);
   }
 
   int _getIndex(Point point) {
     return point.x + point.y * 4;
   }
 
-  bool _isOppositeTeam(GameCardModel played, GameCardModel neighbour) {
-    return played.team != neighbour.team;
+  bool _hasCard(BoardTileModel model) {
+    return model.cardModel != null;
+  }
+
+  bool _isOppositeTeam(BoardTileModel played, BoardTileModel neighbour) {
+    return played.cardModel!.team != neighbour.cardModel!.team;
   }
 
   bool _hasHigherAttributes(BoardTileModel played, BoardTileModel neighbour) {
@@ -88,6 +91,18 @@ class BoardController with ChangeNotifier {
     return playedValue > neighbourValue;
   }
 
+  Direction _getDirection(Point reference, Point relative) {
+    if (reference.y < relative.y) {
+      return Direction.TOP;
+    } else if (reference.x < relative.x) {
+      return Direction.RIGHT;
+    } else if (reference.y > relative.y) {
+      return Direction.BOTTOM;
+    } else {
+      return Direction.LEFT;
+    }
+  }
+
   Direction _getOpposite(Direction dir) {
     switch (dir) {
       case Direction.TOP:
@@ -98,18 +113,6 @@ class BoardController with ChangeNotifier {
         return Direction.TOP;
       case Direction.LEFT:
         return Direction.RIGHT;
-    }
-  }
-
-  Direction _getDirection(Point reference, Point relative) {
-    if (reference.y < relative.y) {
-      return Direction.TOP;
-    } else if (reference.x < relative.x) {
-      return Direction.RIGHT;
-    } else if (reference.y > relative.y) {
-      return Direction.BOTTOM;
-    } else {
-      return Direction.LEFT;
     }
   }
 }
