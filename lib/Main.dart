@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Providers/BoardTilesController.dart';
+import 'package:pac4/Pages/Game/Providers/BoardController.dart';
 import 'package:pac4/Pages/Game/Providers/EnemyCards.dart';
 import 'package:pac4/Pages/Game/Providers/GameController.dart';
 import 'package:pac4/Pages/Game/Providers/PlayerCards.dart';
@@ -14,9 +14,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Orientação retrato fixa
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    // Sem mostrar barra de status do celular
     SystemChrome.setEnabledSystemUIOverlays([]);
 
     return MultiProvider(
@@ -28,12 +26,12 @@ class MyApp extends StatelessWidget {
           create: (BuildContext context) => EnemyCards(),
         ),
         ChangeNotifierProvider(
-          create: (BuildContext context) => BoardTiles(),
+          create: (BuildContext context) => BoardController(),
         ),
         ChangeNotifierProvider(
           create: (BuildContext context) => GameController(),
         ),
-      ], // TODO: Colocar em locais mais próximos da realidade para mais desempenho
+      ],
       child: MaterialApp(
         title: 'Truco of Legends',
         home: GamePage(),

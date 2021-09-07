@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Providers/BoardTilesController.dart';
+import 'package:pac4/Pages/Game/Providers/BoardController.dart';
 import 'package:pac4/Pages/Game/Widgets/BoardTile/BoardTileView.dart';
 import 'package:provider/provider.dart';
 
@@ -8,7 +8,7 @@ class Board extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<BoardTiles>(
+    return Consumer<BoardController>(
       builder: (context, boardTilesController, child) => Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -51,35 +51,5 @@ class Board extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-class Point {
-  int x;
-  int y;
-
-  Point(this.x, this.y);
-
-  List<Point> getNeighbours() {
-    List<Point> neighbours = [];
-
-    if (_isValidPoint(y + 1)) {
-      neighbours.add(Point(x, y + 1));
-    }
-    if (_isValidPoint(x + 1)) {
-      neighbours.add(Point(x + 1, y));
-    }
-    if (_isValidPoint(y - 1)) {
-      neighbours.add(Point(x, y - 1));
-    }
-    if (_isValidPoint(x - 1)) {
-      neighbours.add(Point(x - 1, y));
-    }
-
-    return neighbours;
-  }
-
-  bool _isValidPoint(int point) {
-    return (point >= 0 && point < 4);
   }
 }

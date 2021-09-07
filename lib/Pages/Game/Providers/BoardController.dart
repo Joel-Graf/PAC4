@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:pac4/Pages/Game/Widgets/Board.dart';
+import 'package:pac4/Pages/Game/Util/Classes.dart';
+import 'package:pac4/Pages/Game/Util/Enums.dart';
 import 'package:pac4/Pages/Game/Widgets/BoardTile/BoardTileModel.dart';
 import 'package:pac4/Pages/Game/Widgets/Card/GameCardModel.dart';
 
-class BoardTiles with ChangeNotifier {
+class BoardController with ChangeNotifier {
   final List<BoardTileModel> _boardTiles = [
     BoardTileModel(Point(0, 0), null), // 0
     BoardTileModel(Point(1, 0), null), // 1
@@ -21,7 +22,7 @@ class BoardTiles with ChangeNotifier {
     BoardTileModel(Point(1, 3), null), // 13
     BoardTileModel(Point(2, 3), null), // 14
     BoardTileModel(Point(3, 3), null), // 15
-  ]; // TODO: Desse modo ele remota o tile inteiro, as vezes só é necessário pintar uma carta
+  ];
 
   List<BoardTileModel> get boardTiles => [..._boardTiles];
 
@@ -33,9 +34,8 @@ class BoardTiles with ChangeNotifier {
       if (data.cardModel != null &&
           _isOppositeTeam(playedData.cardModel!, data.cardModel!) &&
           _hasHigherAttributes(playedData, data)) {
-        final newData =
-            BoardTileModel(data.point, data.cardModel!.getFlipped());
-        _updateBoardTile(newData);
+        data.cardModel!.flip();
+        _updateBoardTile(data);
       }
     });
     notifyListeners();

@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:pac4/Pages/Game/Util/Classes.dart';
+import 'package:pac4/Pages/Game/Util/Enums.dart';
 import 'package:pac4/Pages/Game/Util/MyCard.dart';
 import 'package:pac4/Pages/Game/Widgets/Card/GameCardModel.dart';
 
 class GameCardView extends StatelessWidget {
-  final GameCardModel model;
-
   const GameCardView({
     Key? key,
     required this.model,
   }) : super(key: key);
+
+  final GameCardModel model;
 
   @override
   Widget build(BuildContext context) {

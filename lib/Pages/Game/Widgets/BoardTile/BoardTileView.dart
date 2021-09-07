@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Providers/BoardTilesController.dart';
+import 'package:pac4/Pages/Game/Providers/BoardController.dart';
 import 'package:pac4/Pages/Game/Widgets/Card/GameCardModel.dart';
 import 'package:pac4/Pages/Game/Widgets/Card/GameCardView.dart';
 import 'package:pac4/Pages/Game/Widgets/BoardTile/BoardTileModel.dart';
@@ -32,7 +32,7 @@ class _BoardTileState extends State<BoardTile> with ChangeNotifier {
       },
       onAccept: (GameCardModel data) {
         final newData = BoardTileModel(widget.model.point, data);
-        Provider.of<BoardTiles>(context, listen: false).onCardPlay(
+        Provider.of<BoardController>(context, listen: false).onCardPlay(
           newData,
         );
         notifyListeners();

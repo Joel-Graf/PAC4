@@ -1,11 +1,7 @@
-class GameCardModel {
-  Team team;
-  Region region;
-  String name;
-  Rarity rarity;
-  Attributes atributtes;
-  List<Powers>? powers;
+import 'package:pac4/Pages/Game/Util/Classes.dart';
+import 'package:pac4/Pages/Game/Util/Enums.dart';
 
+class GameCardModel {
   GameCardModel({
     required this.team,
     required this.region,
@@ -15,42 +11,14 @@ class GameCardModel {
     this.powers,
   });
 
-  GameCardModel getFlipped() {
-    this.team = this.team == Team.PLAYER ? Team.ENEMY : Team.PLAYER;
-    return this;
-  }
-}
-
-enum Team { PLAYER, ENEMY }
-
-enum Region { DEMACIA, NOXUS }
-
-const Map Regions = {Region.DEMACIA: 'demacia', Region.NOXUS: 'noxus'};
-
-enum Rarity { COMMON, RARE, EPIC, LEGENDARY }
-
-class Attributes {
-  int _top;
-  int _right;
-  int _bottom;
-  int _left;
-
-  Map<Direction, int> get values => {
-        Direction.TOP: _top,
-        Direction.RIGHT: _right,
-        Direction.BOTTOM: _bottom,
-        Direction.LEFT: _left
-      };
-
-  Attributes(this._top, this._right, this._bottom, this._left);
-}
-
-enum Direction { TOP, RIGHT, BOTTOM, LEFT }
-
-class Powers {
+  Team team;
+  Region region;
   String name;
-  String descrition;
-  void Function() execution;
+  Rarity rarity;
+  Attributes atributtes;
+  List<Powers>? powers;
 
-  Powers(this.name, this.descrition, this.execution);
+  void flip() {
+    this.team = this.team == Team.PLAYER ? Team.ENEMY : Team.PLAYER;
+  }
 }

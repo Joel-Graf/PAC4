@@ -14,7 +14,7 @@ class GamePage extends StatelessWidget {
           color: Colors.black,
           child: Column(
             children: <Widget>[
-              Flexible(
+              Expanded(
                 flex: 1,
                 child: HandEnemy(),
               ),
@@ -22,7 +22,7 @@ class GamePage extends StatelessWidget {
                 flex: 4,
                 child: Board(),
               ),
-              Flexible(
+              Expanded(
                 flex: 2,
                 child: HandPlayer(),
               ),
