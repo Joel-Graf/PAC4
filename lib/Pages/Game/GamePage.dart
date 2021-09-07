@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Widgets/Board/Board.dart';
-import 'package:pac4/Pages/Game/Widgets/Hand/EnemyHand.dart';
+import 'package:pac4/Pages/Game/Widgets/Hand/EnemyHand/EnemyHand.dart';
 import 'package:pac4/Pages/Game/Widgets/Hand/PlayerHand.dart';
 
 class GamePage extends StatelessWidget {
@@ -16,7 +16,7 @@ class GamePage extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 flex: 1,
-                child: HandEnemy(),
+                child: EnemyHand(),
               ),
               Expanded(
                 flex: 4,
