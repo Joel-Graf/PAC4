@@ -82,6 +82,4 @@ class Point {
   bool _isValidPoint(int point) {
     return (point >= 0 && point < 4);
   }
-
-  getNeighboursPos() {}
 }
