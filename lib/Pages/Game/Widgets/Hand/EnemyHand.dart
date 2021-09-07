@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Providers/EnemyCards.dart';
 import 'package:pac4/Pages/Game/Providers/GameController.dart';
 import 'package:pac4/Pages/Game/Util/Constants.dart';
-import 'package:pac4/Pages/Game/Widgets/Hands/Card/EnemyCard.dart';
+import 'package:pac4/Pages/Game/Widgets/Hand/Card/EnemyCard.dart';
 import 'package:provider/provider.dart';
 
 class HandEnemy extends StatelessWidget {

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Providers/EnemyCards.dart';
 import 'package:pac4/Pages/Game/Providers/GameController.dart';
 import 'package:pac4/Pages/Game/Util/EmpetyTile.dart';
-import 'package:pac4/Pages/Game/Widgets/Hands/Card/GameCardModel.dart';
-import 'package:pac4/Pages/Game/Widgets/Hands/Card/GameCardView.dart';
+import 'package:pac4/Pages/Game/Widgets/Hand/Card/GameCardModel.dart';
+import 'package:pac4/Pages/Game/Widgets/Hand/Card/GameCardView.dart';
 import 'package:provider/provider.dart';
 
 class EnemyCard extends StatefulWidget {

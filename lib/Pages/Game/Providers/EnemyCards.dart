@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Util/Classes.dart';
 import 'package:pac4/Pages/Game/Util/Constants.dart';
-import 'package:pac4/Pages/Game/Widgets/Hands/Card/GameCardModel.dart';
+import 'package:pac4/Pages/Game/Widgets/Hand/Card/GameCardModel.dart';
 
 class EnemyCards with ChangeNotifier {
   final _enemyCards = <GameCardModel?>[
