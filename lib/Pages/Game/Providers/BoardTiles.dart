@@ -26,11 +26,7 @@ class BoardTiles with ChangeNotifier {
   List<BoardTileData> get boardTiles => [..._boardTiles];
 
   void onCardPlay(BoardTileData playedData) {
-    print(playedData.point.x);
-    print(playedData.point.y);
     _updateBoardTile(playedData);
-    print(playedData.cardData);
-    print(playedData.point);
     final List<Point> neighbours = playedData.point.getNeighbours();
     neighbours.forEach((point) {
       final BoardTileData data = BoardTileData(point, _getCardData(point));

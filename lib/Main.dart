@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (BuildContext context) => BoardTiles(),
         ),
-      ],
+      ], // TODO: Colocar em locais mais próximos da realidade para mais desempenho
       child: MaterialApp(
         title: 'Truco of Legends',
         home: GamePage(),
