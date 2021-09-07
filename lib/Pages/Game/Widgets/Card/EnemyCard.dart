@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Providers/EnemyCards.dart';
+import 'package:pac4/Pages/Game/Providers/Game.dart';
 import 'package:pac4/Pages/Game/Widgets/Card/CardData.dart';
 import 'package:pac4/Pages/Game/Widgets/Card/CardModel.dart';
 import 'package:pac4/Pages/Game/Widgets/Tile/EmpetyTile.dart';
@@ -33,6 +34,7 @@ class _EnemyCardState extends State<EnemyCard> with ChangeNotifier {
             onDragCompleted: () {
               Provider.of<EnemyCards>(context, listen: false)
                   .removeFromEnemyHand(widget.cardData!);
+              Provider.of<Game>(context, listen: false).changeTurn();
               notifyListeners();
             },
           )

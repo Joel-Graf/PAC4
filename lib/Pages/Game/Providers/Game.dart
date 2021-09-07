@@ -16,5 +16,6 @@ class Game with ChangeNotifier {
   void finishGame(Team winner) {
     _isGameFinished = true;
     _winner = winner;
+    notifyListeners();
   }
 }

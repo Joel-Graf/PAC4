@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pac4/Pages/Game/Providers/Game.dart';
 import 'package:pac4/Pages/Game/Providers/PlayerCards.dart';
 import 'package:pac4/Pages/Game/Widgets/Card/CardData.dart';
 import 'package:pac4/Pages/Game/Widgets/Card/CardModel.dart';
@@ -33,6 +34,7 @@ class _PlayerCardState extends State<PlayerCard> with ChangeNotifier {
             onDragCompleted: () {
               Provider.of<PlayerCards>(context, listen: false)
                   .removeFromPlayerHand(widget.cardData!);
+              Provider.of<Game>(context, listen: false).changeTurn();
               notifyListeners();
             },
           )
