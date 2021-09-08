@@ -6,8 +6,8 @@ import 'package:pac4/Pages/Game/Widgets/Hand/Card/GameCardModel.dart';
 import 'package:pac4/Pages/Game/Widgets/Hand/Card/GameCardView.dart';
 import 'package:provider/provider.dart';
 
-class BoardTile extends StatefulWidget {
-  const BoardTile(
+class BoardTileView extends StatefulWidget {
+  const BoardTileView(
     this.model, {
     Key? key,
   }) : super(key: key);
@@ -15,10 +15,10 @@ class BoardTile extends StatefulWidget {
   final BoardTileModel model;
 
   @override
-  _BoardTileState createState() => _BoardTileState();
+  _BoardTileViewState createState() => _BoardTileViewState();
 }
 
-class _BoardTileState extends State<BoardTile> with ChangeNotifier {
+class _BoardTileViewState extends State<BoardTileView> with ChangeNotifier {
   @override
   Widget build(BuildContext context) {
     return DragTarget(
@@ -32,9 +32,8 @@ class _BoardTileState extends State<BoardTile> with ChangeNotifier {
       },
       onAccept: (GameCardModel data) {
         final newData = BoardTileModel(widget.model.point, data);
-        Provider.of<BoardController>(context, listen: false).onCardPlay(
-          newData,
-        );
+        Provider.of<BoardController>(context, listen: false)
+            .onCardPlay(newData);
         notifyListeners();
       },
     );
