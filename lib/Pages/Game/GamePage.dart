@@ -4,8 +4,6 @@ import 'package:pac4/Pages/Game/Widgets/Hand/EnemyHand/EnemyHand.dart';
 import 'package:pac4/Pages/Game/Widgets/Hand/PlayerHand/PlayerHand.dart';
 
 class GamePage extends StatelessWidget {
-  const GamePage({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(

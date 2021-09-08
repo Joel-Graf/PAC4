@@ -7,10 +7,7 @@ import 'package:pac4/Pages/Game/Widgets/Hand/Card/GameCardView.dart';
 import 'package:provider/provider.dart';
 
 class BoardTileView extends StatefulWidget {
-  const BoardTileView(
-    this.model, {
-    Key? key,
-  }) : super(key: key);
+  const BoardTileView({required this.model});
 
   final BoardTileModel model;
 

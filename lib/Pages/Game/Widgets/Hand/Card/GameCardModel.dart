@@ -12,9 +12,9 @@ class GameCardModel {
   });
 
   Team team;
-  Region region;
-  String name;
-  Rarity rarity;
+  final Region region;
+  final String name;
+  final Rarity rarity;
   Attributes atributtes;
   List<Powers>? powers;
 

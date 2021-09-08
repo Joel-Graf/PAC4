@@ -6,9 +6,8 @@ import 'package:pac4/Pages/Game/Widgets/Hand/Card/GameCardModel.dart';
 
 class GameCardView extends StatelessWidget {
   const GameCardView({
-    Key? key,
     required this.model,
-  }) : super(key: key);
+  });
 
   final GameCardModel model;
 
@@ -32,14 +31,13 @@ class GameCardView extends StatelessWidget {
 }
 
 class GameCardBackground extends StatelessWidget {
-  final String image;
-  final Team team;
-
   const GameCardBackground({
-    Key? key,
     required this.image,
     required this.team,
-  }) : super(key: key);
+  });
+
+  final String image;
+  final Team team;
 
   @override
   Widget build(BuildContext context) {
@@ -66,9 +64,8 @@ class GameCardContent extends StatelessWidget {
 
   const GameCardContent(
     this.attributes,
-    this.region, {
-    Key? key,
-  }) : super(key: key);
+    this.region,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -96,9 +93,9 @@ class GameCardContent extends StatelessWidget {
 }
 
 class AttributesModel extends StatelessWidget {
-  final Attributes attributes;
+  const AttributesModel(this.attributes);
 
-  const AttributesModel(this.attributes, {Key? key}) : super(key: key);
+  final Attributes attributes;
 
   @override
   Widget build(BuildContext context) {
@@ -121,9 +118,9 @@ class AttributesModel extends StatelessWidget {
 }
 
 class AttributeText extends StatelessWidget {
-  final String text;
+  const AttributeText(this.text);
 
-  const AttributeText(this.text, {Key? key}) : super(key: key);
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -154,9 +151,9 @@ class AttributeText extends StatelessWidget {
 }
 
 class RegionModel extends StatelessWidget {
-  final Region region;
+  const RegionModel(this.region);
 
-  const RegionModel(this.region, {Key? key}) : super(key: key);
+  final Region region;
 
   @override
   Widget build(BuildContext context) {

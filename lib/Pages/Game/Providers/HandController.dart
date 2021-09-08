@@ -3,7 +3,7 @@ import 'package:pac4/Pages/Game/Util/Classes.dart';
 import 'package:pac4/Pages/Game/Util/Constants.dart';
 import 'package:pac4/Pages/Game/Widgets/Hand/Card/GameCardModel.dart';
 
-class HandController with ChangeNotifier {
+abstract class HandController with ChangeNotifier {
   HandController(this._cards);
 
   final List<GameCardModel?> _cards;
@@ -18,17 +18,15 @@ class HandController with ChangeNotifier {
 }
 
 class PlayerController extends HandController {
-  PlayerController(this._cards) : super(_cards);
-  final List<GameCardModel?> _cards;
+  PlayerController({required List<GameCardModel?> cards}) : super(cards);
 }
 
 class EnemyController extends HandController {
-  EnemyController(this._cards) : super(_cards);
-  final List<GameCardModel?> _cards;
+  EnemyController({required List<GameCardModel?> cards}) : super(cards);
 }
 
 final playerController = PlayerController(
-  <GameCardModel?>[
+  cards: <GameCardModel?>[
     GameCardModel(
       team: Team.PLAYER,
       region: Region.DEMACIA,
@@ -89,7 +87,7 @@ final playerController = PlayerController(
 );
 
 final enemyController = EnemyController(
-  <GameCardModel?>[
+  cards: <GameCardModel?>[
     GameCardModel(
       team: Team.ENEMY,
       region: Region.NOXUS,

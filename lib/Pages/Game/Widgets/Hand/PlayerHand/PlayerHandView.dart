@@ -3,10 +3,7 @@ import 'package:pac4/Pages/Game/Widgets/Hand/Card/GameCard.dart';
 import 'package:pac4/Pages/Game/Widgets/Hand/HandModel.dart';
 
 class PlayerHandView extends StatelessWidget {
-  const PlayerHandView(
-    this.model, {
-    Key? key,
-  }) : super(key: key);
+  const PlayerHandView({required this.model});
 
   final HandModel model;
 
@@ -26,7 +23,7 @@ class PlayerHandView extends StatelessWidget {
                   child: Wrap(
                     alignment: WrapAlignment.spaceEvenly,
                     children: model.cards
-                        .map((cardModel) => GameCard(cardModel))
+                        .map((cardModel) => GameCard(model: cardModel))
                         .toList(),
                   ),
                 ),

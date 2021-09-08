@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Util/MyCard.dart';
 
 class EmpetyTile extends StatelessWidget {
-  const EmpetyTile({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MyCard(

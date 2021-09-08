@@ -8,7 +8,7 @@ import 'package:pac4/Pages/Game/Widgets/Hand/Card/GameCardView.dart';
 import 'package:provider/provider.dart';
 
 class GameCard extends StatefulWidget {
-  const GameCard(this.model, {Key? key}) : super(key: key);
+  const GameCard({this.model});
 
   final GameCardModel? model;
 

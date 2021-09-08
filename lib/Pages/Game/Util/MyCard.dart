@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MyCard extends StatelessWidget {
-  final Widget child;
+  const MyCard({required this.child});
 
-  const MyCard({required this.child, Key? key}) : super(key: key);
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {

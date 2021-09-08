@@ -7,14 +7,12 @@ import 'package:pac4/Pages/Game/Widgets/Hand/PlayerHand/PlayerHandView.dart';
 import 'package:provider/provider.dart';
 
 class PlayerHand extends StatelessWidget {
-  const PlayerHand({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Consumer<GameController>(
       builder: (context, gameController, child) => Consumer<PlayerController>(
         builder: (context, playerController, child) => PlayerHandView(
-          HandModel(
+          model: HandModel(
             cards: playerController.cards,
             team: Team.PLAYER,
             turn: gameController.turn,
