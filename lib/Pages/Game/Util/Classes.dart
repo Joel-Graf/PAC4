@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:pac4/Pages/Game/Util/Constants.dart';
 
 class Point {
@@ -31,40 +32,24 @@ class Point {
   bool _isValidPoint(int point) {
     return (point >= 0 && point < 4);
   }
+
+  Direction getDirectionTo(Point relative) {
+    final reference = this;
+
+    if (reference.y < relative.y) {
+      return Direction.TOP;
+    } else if (reference.x < relative.x) {
+      return Direction.RIGHT;
+    } else if (reference.y > relative.y) {
+      return Direction.BOTTOM;
+    } else if (reference.x > relative.x) {
+      return Direction.LEFT;
+    }
+
+    throw ErrorDescription(
+        "ERROR: Class 'Point', Method 'getDirectionFrom' FAILED!");
+  }
 }
-
-// class Direction {
-//   Direction(this.direction);
-//   Direction.fromPoints(Point reference, Point relative)
-//       : direction = _create(reference, relative);
-
-//   DirectionEnum direction;
-
-//   static DirectionEnum _create(Point reference, Point relative) {
-//     if (reference.y < relative.y) {
-//       return (DirectionEnum.TOP);
-//     } else if (reference.x < relative.x) {
-//       return (DirectionEnum.RIGHT);
-//     } else if (reference.y > relative.y) {
-//       return (DirectionEnum.BOTTOM);
-//     } else {
-//       return (DirectionEnum.LEFT);
-//     }
-//   }
-
-//   Direction get opposite {
-//     switch (direction) {
-//       case DirectionEnum.TOP:
-//         return Direction(DirectionEnum.BOTTOM);
-//       case DirectionEnum.RIGHT:
-//         return Direction(DirectionEnum.LEFT);
-//       case DirectionEnum.BOTTOM:
-//         return Direction(DirectionEnum.TOP);
-//       case DirectionEnum.LEFT:
-//         return Direction(DirectionEnum.RIGHT);
-//     }
-//   }
-// }
 
 class Attributes {
   int _top;

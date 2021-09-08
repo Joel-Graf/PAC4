@@ -63,40 +63,15 @@ class BoardController with ChangeNotifier {
   }
 
   bool _hasHigherAttributes(BoardTileModel played, BoardTileModel neighbour) {
-    final Direction neighbourDirection =
-        _getDirection(played.point, neighbour.point);
-    final int playedValue =
-        played.cardModel!.atributtes.values[neighbourDirection]!;
+    final Direction attackDirection =
+        played.point.getDirectionTo(neighbour.point);
+    final int attackValue =
+        played.cardModel!.atributtes.values[attackDirection]!;
 
-    final Direction playerDirection = _getOpposite(neighbourDirection);
-    final int neighbourValue =
-        neighbour.cardModel!.atributtes.values[playerDirection]!;
+    final Direction deffenseDirection = attackDirection.opposite;
+    final int deffenseValue =
+        neighbour.cardModel!.atributtes.values[deffenseDirection]!;
 
-    return playedValue > neighbourValue;
-  }
-
-  Direction _getDirection(Point reference, Point relative) {
-    if (reference.y < relative.y) {
-      return Direction.TOP;
-    } else if (reference.x < relative.x) {
-      return Direction.RIGHT;
-    } else if (reference.y > relative.y) {
-      return Direction.BOTTOM;
-    } else {
-      return Direction.LEFT;
-    }
-  }
-
-  Direction _getOpposite(Direction dir) {
-    switch (dir) {
-      case Direction.TOP:
-        return Direction.BOTTOM;
-      case Direction.RIGHT:
-        return Direction.LEFT;
-      case Direction.BOTTOM:
-        return Direction.TOP;
-      case Direction.LEFT:
-        return Direction.RIGHT;
-    }
+    return attackValue > deffenseValue;
   }
 }
