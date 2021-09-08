@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Widgets/Hand/Card/GameCard.dart';
 import 'package:pac4/Pages/Game/Widgets/Hand/HandModel.dart';
 
-class PlayerHandView extends StatelessWidget {
-  const PlayerHandView({required this.model});
+class HandPlayerView extends StatelessWidget {
+  const HandPlayerView({required this.model});
 
   final HandModel model;
 
@@ -30,7 +30,7 @@ class PlayerHandView extends StatelessWidget {
               ],
             ),
           ),
-          if (model.isBlocked)
+          if (!model.isTurn)
             Container(
               color: Colors.black.withOpacity(0.6),
             )

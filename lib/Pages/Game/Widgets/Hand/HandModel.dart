@@ -15,5 +15,6 @@ class HandModel {
   final Team _turn;
 
   List<GameCardModel?> get cards => [..._cards];
-  bool get isBlocked => _team != _turn;
+  Team get team => _team;
+  bool get isTurn => _team == _turn;
 }

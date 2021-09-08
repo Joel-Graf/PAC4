@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Widgets/Hand/Card/GameCard.dart';
 import 'package:pac4/Pages/Game/Widgets/Hand/HandModel.dart';
 
-class EnemyHandView extends StatelessWidget {
-  const EnemyHandView({required this.model});
+class HandEnemyView extends StatelessWidget {
+  const HandEnemyView({required this.model});
 
   final HandModel model;
 
   @override
   Widget build(BuildContext context) {
     return IgnorePointer(
-      ignoring: model.isBlocked,
+      ignoring: !model.isTurn,
       child: Stack(
         children: [
           Container(
@@ -35,7 +35,7 @@ class EnemyHandView extends StatelessWidget {
               ],
             ),
           ),
-          if (model.isBlocked)
+          if (!model.isTurn)
             Container(
               color: Colors.black.withOpacity(0.6),
             )

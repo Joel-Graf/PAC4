@@ -21,8 +21,8 @@ class GameCardView extends StatelessWidget {
             team: model.team,
           ),
           GameCardContent(
-            model.atributtes,
-            model.region,
+            attributes: model.atributtes,
+            region: model.region,
           ),
         ],
       ),
@@ -59,13 +59,13 @@ class GameCardBackground extends StatelessWidget {
 }
 
 class GameCardContent extends StatelessWidget {
+  const GameCardContent({
+    required this.attributes,
+    required this.region,
+  });
+
   final Attributes attributes;
   final Region region;
-
-  const GameCardContent(
-    this.attributes,
-    this.region,
-  );
 
   @override
   Widget build(BuildContext context) {
@@ -77,13 +77,13 @@ class GameCardContent extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              AttributesModel(attributes),
+              AttributesView(attributes: attributes),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              RegionModel(region),
+              RegionView(region: region),
             ],
           ),
         ],
@@ -92,8 +92,8 @@ class GameCardContent extends StatelessWidget {
   }
 }
 
-class AttributesModel extends StatelessWidget {
-  const AttributesModel(this.attributes);
+class AttributesView extends StatelessWidget {
+  const AttributesView({required this.attributes});
 
   final Attributes attributes;
 
@@ -150,8 +150,8 @@ class AttributeText extends StatelessWidget {
   }
 }
 
-class RegionModel extends StatelessWidget {
-  const RegionModel(this.region);
+class RegionView extends StatelessWidget {
+  const RegionView({required this.region});
 
   final Region region;
 
