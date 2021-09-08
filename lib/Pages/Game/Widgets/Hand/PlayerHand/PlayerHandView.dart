@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Widgets/Hand/Card/PlayerCard.dart';
+import 'package:pac4/Pages/Game/Widgets/Hand/Card/GameCard.dart';
 import 'package:pac4/Pages/Game/Widgets/Hand/HandModel.dart';
 
 class PlayerHandView extends StatelessWidget {
@@ -26,7 +26,7 @@ class PlayerHandView extends StatelessWidget {
                   child: Wrap(
                     alignment: WrapAlignment.spaceEvenly,
                     children: model.cards
-                        .map((cardModel) => PlayerCard(cardModel))
+                        .map((cardModel) => GameCard(cardModel))
                         .toList(),
                   ),
                 ),

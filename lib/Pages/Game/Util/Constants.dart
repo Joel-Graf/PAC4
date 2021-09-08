@@ -6,4 +6,11 @@ enum Direction { TOP, RIGHT, BOTTOM, LEFT }
 
 enum Region { DEMACIA, NOXUS }
 
-const Map Regions = {Region.DEMACIA: 'demacia', Region.NOXUS: 'noxus'};
+extension RegionExt on Region {
+  static const Map _names = {
+    Region.DEMACIA: 'demacia',
+    Region.NOXUS: 'noxus',
+  };
+
+  String get name => _names[this];
+}

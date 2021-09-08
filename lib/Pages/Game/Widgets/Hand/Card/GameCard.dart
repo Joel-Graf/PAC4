@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Providers/GameController.dart';
 import 'package:pac4/Pages/Game/Providers/HandController.dart';
+import 'package:pac4/Pages/Game/Util/Constants.dart';
 import 'package:pac4/Pages/Game/Util/EmpetyTile.dart';
 import 'package:pac4/Pages/Game/Widgets/Hand/Card/GameCardModel.dart';
 import 'package:pac4/Pages/Game/Widgets/Hand/Card/GameCardView.dart';
 import 'package:provider/provider.dart';
 
-class EnemyCard extends StatefulWidget {
-  const EnemyCard(this.model, {Key? key}) : super(key: key);
+class GameCard extends StatefulWidget {
+  const GameCard(this.model, {Key? key}) : super(key: key);
 
   final GameCardModel? model;
 
+  bool get hasCard => model != null;
+
   @override
-  _EnemyCardState createState() => _EnemyCardState();
+  _GameCardState createState() => _GameCardState();
 }
 
-class _EnemyCardState extends State<EnemyCard> with ChangeNotifier {
+class _GameCardState extends State<GameCard> with ChangeNotifier {
   @override
   Widget build(BuildContext context) {
-    return widget.model != null
+    return widget.hasCard
         ? Draggable<GameCardModel>(
             child: GameCardView(
               model: widget.model!,
@@ -32,8 +35,11 @@ class _EnemyCardState extends State<EnemyCard> with ChangeNotifier {
             childWhenDragging: EmpetyTile(),
             data: widget.model!,
             onDragCompleted: () {
-              Provider.of<EnemyController>(context, listen: false)
-                  .remove(widget.model!);
+              widget.model!.team == Team.PLAYER
+                  ? Provider.of<PlayerController>(context, listen: false)
+                      .remove(widget.model!)
+                  : Provider.of<EnemyController>(context, listen: false)
+                      .remove(widget.model!);
               Provider.of<GameController>(context, listen: false).changeTurn();
               notifyListeners();
             },

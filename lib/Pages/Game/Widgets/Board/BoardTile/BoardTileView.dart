@@ -23,15 +23,15 @@ class _BoardTileViewState extends State<BoardTileView> with ChangeNotifier {
   Widget build(BuildContext context) {
     return DragTarget(
       builder: (context, List<Object?> candidateData, rejectedData) {
-        return widget.model.cardModel != null
+        return widget.model.hasCard
             ? GameCardView(model: widget.model.cardModel!)
             : EmpetyTile();
       },
       onWillAccept: (data) {
-        return widget.model.cardModel == null;
+        return !widget.model.hasCard;
       },
-      onAccept: (GameCardModel data) {
-        final newData = BoardTileModel(widget.model.point, data);
+      onAccept: (GameCardModel model) {
+        final newData = BoardTileModel(widget.model.point, cardModel: model);
         Provider.of<BoardController>(context, listen: false)
             .onCardPlay(newData);
         notifyListeners();

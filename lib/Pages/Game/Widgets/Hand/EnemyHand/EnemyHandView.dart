@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Widgets/Hand/Card/EnemyCard.dart';
+import 'package:pac4/Pages/Game/Widgets/Hand/Card/GameCard.dart';
 import 'package:pac4/Pages/Game/Widgets/Hand/HandModel.dart';
 
 class EnemyHandView extends StatelessWidget {
@@ -26,7 +26,7 @@ class EnemyHandView extends StatelessWidget {
                       children: model.cards
                           .map((cardModel) => Padding(
                                 padding: const EdgeInsets.all(3.0),
-                                child: EnemyCard(cardModel),
+                                child: GameCard(cardModel),
                               ))
                           .toList(),
                     ),

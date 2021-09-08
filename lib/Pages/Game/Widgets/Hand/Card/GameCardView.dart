@@ -18,7 +18,7 @@ class GameCardView extends StatelessWidget {
       child: Stack(
         children: [
           GameCardBackground(
-            image: '${Regions[model.region]}/${model.name}',
+            image: '${model.region.name}/${model.name}',
             team: model.team,
           ),
           GameCardContent(
@@ -180,7 +180,7 @@ class RegionModel extends StatelessWidget {
               ],
             ),
             child: Image.asset(
-              'assets/images/regions/${Regions[region]}.png',
+              'assets/images/regions/${region.name}.png',
               fit: BoxFit.cover,
             ),
           ),
