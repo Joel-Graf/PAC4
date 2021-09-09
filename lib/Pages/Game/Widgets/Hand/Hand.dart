@@ -15,7 +15,7 @@ class Hand extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<GameController>(
-      builder: (context, gameController, child) => team == Team.PLAYER
+      builder: (context, gameController, child) => team.isPlayer
           ? Consumer<PlayerController>(
               builder: (context, playerController, child) => HandPlayerView(
                 model: HandModel(

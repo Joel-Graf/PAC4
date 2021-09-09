@@ -1,5 +1,9 @@
 enum Team { PLAYER, ENEMY }
 
+extension TeamExt on Team {
+  bool get isPlayer => this == Team.PLAYER;
+}
+
 enum Rarity { COMMON, RARE, EPIC, LEGENDARY }
 
 enum Direction { TOP, RIGHT, BOTTOM, LEFT }

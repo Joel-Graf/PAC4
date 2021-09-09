@@ -42,7 +42,7 @@ class GameCardBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: team == Team.PLAYER ? Colors.blue : Colors.red,
+      color: team.isPlayer ? Colors.blue : Colors.red,
       child: Padding(
         padding: EdgeInsets.all(4),
         child: ClipRRect(

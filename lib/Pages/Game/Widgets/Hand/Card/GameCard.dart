@@ -35,7 +35,7 @@ class _GameCardState extends State<GameCard> with ChangeNotifier {
             childWhenDragging: EmpetyTile(),
             data: widget.model!,
             onDragCompleted: () {
-              widget.model!.team == Team.PLAYER
+              widget.model!.team.isPlayer
                   ? Provider.of<PlayerController>(context, listen: false)
                       .remove(widget.model!)
                   : Provider.of<EnemyController>(context, listen: false)
