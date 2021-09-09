@@ -7,7 +7,7 @@ class GameController with ChangeNotifier {
   Team get turn => _turn;
 
   void changeTurn() {
-    _turn = _turn == Team.PLAYER ? Team.ENEMY : Team.PLAYER;
+    _turn = _turn.isPlayer ? Team.ENEMY : Team.PLAYER;
     notifyListeners();
   }
 

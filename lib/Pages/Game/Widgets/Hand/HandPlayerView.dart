@@ -10,7 +10,7 @@ class HandPlayerView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IgnorePointer(
-      ignoring: false,
+      ignoring: !model.isTurn,
       child: Stack(
         children: [
           Container(

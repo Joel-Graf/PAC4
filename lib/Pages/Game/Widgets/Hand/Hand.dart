@@ -20,7 +20,7 @@ class Hand extends StatelessWidget {
               builder: (context, playerController, child) => HandPlayerView(
                 model: HandModel(
                   cards: playerController.cards,
-                  team: Team.PLAYER,
+                  team: team,
                   turn: gameController.turn,
                 ),
               ),
@@ -29,7 +29,7 @@ class Hand extends StatelessWidget {
               builder: (context, enemyController, child) => HandEnemyView(
                 model: HandModel(
                   cards: enemyController.cards,
-                  team: Team.ENEMY,
+                  team: team,
                   turn: gameController.turn,
                 ),
               ),
