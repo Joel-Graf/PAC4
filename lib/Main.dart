@@ -1,23 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:pac4/Pages/Game/Providers/BoardController.dart';
+import 'package:pac4/Pages/Game/Providers/GameController.dart';
+import 'package:pac4/Pages/Game/Providers/HandController.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter/services.dart';
+import 'package:pac4/Pages/Game/GamePage.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Pac 4',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Pac 4'),
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    SystemChrome.setEnabledSystemUIOverlays([]);
+
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (BuildContext context) => playerController,
         ),
-        body: Text('teste'),
+        ChangeNotifierProvider(
+          create: (BuildContext context) => enemyController,
+        ),
+        ChangeNotifierProvider(
+          create: (BuildContext context) => BoardController(),
+        ),
+        ChangeNotifierProvider(
+          create: (BuildContext context) => GameController(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Truco of Legends',
+        home: GamePage(),
       ),
     );
   }
