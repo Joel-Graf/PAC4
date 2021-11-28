@@ -36,7 +36,7 @@ class _BoardTileViewState extends State<BoardTileView> with ChangeNotifier {
         if (Provider.of<BoardController>(context, listen: false)
             .isBoardFull()) {
           Provider.of<GameController>(context, listen: false)
-              .finishGame(model.team);
+              .finishGame(model.team); //FIXME: Definir corretamete o vencedor
         } else {
           Provider.of<GameController>(context, listen: false).changeTurn();
         }
