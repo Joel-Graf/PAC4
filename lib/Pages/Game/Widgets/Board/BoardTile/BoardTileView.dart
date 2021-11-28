@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Providers/BoardController.dart';
+import 'package:pac4/Pages/Game/Providers/GameController.dart';
 import 'package:pac4/Pages/Game/Widgets/Board/BoardTile/BoardTileModel.dart';
 import 'package:pac4/Pages/Game/Util/EmpetyTile.dart';
 import 'package:pac4/Pages/Game/Widgets/Hand/Card/GameCardModel.dart';
@@ -31,6 +32,14 @@ class _BoardTileViewState extends State<BoardTileView> with ChangeNotifier {
         final newData = BoardTileModel(widget.model.point, cardModel: model);
         Provider.of<BoardController>(context, listen: false)
             .onCardPlay(newData);
+
+        if (Provider.of<BoardController>(context, listen: false)
+            .isBoardFull()) {
+          Provider.of<GameController>(context, listen: false)
+              .finishGame(model.team);
+        } else {
+          Provider.of<GameController>(context, listen: false).changeTurn();
+        }
         notifyListeners();
       },
     );

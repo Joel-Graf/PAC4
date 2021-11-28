@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pac4/Pages/Game/Providers/GameController.dart';
 import 'package:pac4/Pages/Game/Providers/HandController.dart';
 import 'package:pac4/Pages/Game/Util/Constants.dart';
 import 'package:pac4/Pages/Game/Util/EmpetyTile.dart';
@@ -19,6 +18,7 @@ class GameCard extends StatefulWidget {
 }
 
 class _GameCardState extends State<GameCard> with ChangeNotifier {
+  //FIXME: Erro: Não está chamando o Dispose ao trocar para tela de Finished
   @override
   Widget build(BuildContext context) {
     return widget.hasCard
@@ -40,7 +40,6 @@ class _GameCardState extends State<GameCard> with ChangeNotifier {
                       .remove(widget.model!)
                   : Provider.of<EnemyController>(context, listen: false)
                       .remove(widget.model!);
-              Provider.of<GameController>(context, listen: false).changeTurn();
               notifyListeners();
             },
           )

@@ -25,6 +25,29 @@ class BoardController with ChangeNotifier {
 
   List<BoardTileModel> get boardTiles => [..._boardTiles];
 
+  bool isBoardFull() {
+    bool isBoardFull = true;
+    for (var boardTileModel in _boardTiles) {
+      if (!boardTileModel.hasCard) {
+        isBoardFull = false;
+        break;
+      }
+    }
+    return isBoardFull;
+  }
+
+  int calculatePlayerScore() {
+    int score = 0;
+    if (isBoardFull()) {
+      for (var boardTileModel in _boardTiles) {
+        if (boardTileModel.cardModel!.team.isPlayer) {
+          score++;
+        }
+      }
+    }
+    return score;
+  }
+
   void onCardPlay(BoardTileModel played) {
     _updateBoardTile(played);
     _tryToFlipNeighbours(played);

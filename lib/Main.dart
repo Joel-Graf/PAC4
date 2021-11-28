@@ -5,9 +5,10 @@ import 'package:pac4/Pages/Game/Providers/HandController.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
 import 'package:pac4/Pages/Game/GamePage.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(Phoenix(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
