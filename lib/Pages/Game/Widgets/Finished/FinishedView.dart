@@ -19,7 +19,7 @@ class FinishedView extends StatelessWidget {
           Text(
             winner.isPlayer ? "Você Ganhou!" : "Você perdeu!",
             style: TextStyle(
-              fontSize: 24,
+              fontSize: 36,
               foreground: Paint()..color = Colors.white,
             ),
           ),
@@ -30,7 +30,7 @@ class FinishedView extends StatelessWidget {
                     .toString(),
             style: TextStyle(
               fontSize: 24,
-              foreground: Paint()..color = Colors.white,
+              foreground: Paint()..color = Colors.blue,
             ),
           ),
           Text(
@@ -41,7 +41,7 @@ class FinishedView extends StatelessWidget {
                     .toString(),
             style: TextStyle(
               fontSize: 24,
-              foreground: Paint()..color = Colors.white,
+              foreground: Paint()..color = Colors.red,
             ),
           ),
           ElevatedButton(

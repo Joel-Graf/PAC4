@@ -16,6 +16,16 @@ class GamePage extends StatelessWidget {
           child: Provider.of<GameController>(context, listen: true)
                   .isGameFinished
               ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Expanded(
+                      child: FinishedView(
+                          Provider.of<GameController>(context, listen: false)
+                              .winner),
+                    ),
+                  ],
+                )
+              : Column(
                   children: <Widget>[
                     Expanded(
                       flex: 1,
@@ -28,16 +38,6 @@ class GamePage extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Hand(team: Team.PLAYER),
-                    ),
-                  ],
-                )
-              : Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Expanded(
-                      child: FinishedView(
-                          Provider.of<GameController>(context, listen: false)
-                              .winner),
                     ),
                   ],
                 ),
