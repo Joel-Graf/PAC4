@@ -12,7 +12,12 @@ class GamePage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          color: Colors.black,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/images/backgrounds/background.png"),
+              fit: BoxFit.cover,
+            ),
+          ),
           child: Provider.of<GameController>(context, listen: true)
                   .isGameFinished
               ? Column(

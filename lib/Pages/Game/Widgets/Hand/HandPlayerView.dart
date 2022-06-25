@@ -14,7 +14,13 @@ class HandPlayerView extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            color: Colors.amber[300]!.withOpacity(0.8),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                    "assets/images/backgrounds/demacia-background.png"),
+                fit: BoxFit.cover,
+              ),
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
