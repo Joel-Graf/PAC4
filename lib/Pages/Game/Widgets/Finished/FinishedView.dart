@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pac4/Pages/Game/Providers/BoardController.dart';
 import 'package:pac4/Pages/Game/Util/Constants.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:provider/provider.dart';
 
 class FinishedView extends StatelessWidget {
@@ -60,7 +59,5 @@ class FinishedView extends StatelessWidget {
   }
 
   // TODO: Verificar porquê HandController não reinicia
-  void restartApp(context) {
-    Phoenix.rebirth(context);
-  }
+  void restartApp(context) {}
 }
